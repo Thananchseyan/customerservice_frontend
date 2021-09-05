@@ -9,6 +9,7 @@ import Home from './pages/home';
 import AddEmployee from "./pages/addEmployee";
 import ViewEmployee from "./pages/viewEmployee";
 import Profile from "./pages/profile";
+import AssignWorker from "./pages/assignWorker";
 
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route exact path='/profile'>
           <Profile/>
+        </Route>
+        <Route exact path='/assignWorker'>
+          <AssignWorker/>
         </Route>
       </Switch>
       

@@ -6,8 +6,7 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
 
-function AddWorkerForm({type}){
-
+const AssignWorkerForm = ({type}) => {
     const formik = useFormik({
         initialValues:{
             name:'',
@@ -58,7 +57,7 @@ function AddWorkerForm({type}){
                 <div className="pcoded-content">
                     <div className="pcoded-inner-content">
                         {/*<!-- [ breadcrumb ] start -->*/}
-                        <BreadCrumb type={type} reason="Add" />
+                        <BreadCrumb type={type} reason="Assign" />
                         {/*<!-- [ breadcrumb ] end -->*/}
                         <div className="main-body">
                             <div className="page-wrapper">
@@ -67,7 +66,7 @@ function AddWorkerForm({type}){
                                     <div className="col-sm-12">
                                         <div className="card">
                                             <div className="card-header">
-                                                <h5>Basic Componant</h5>
+                                                <h5>Assign Workers</h5>
                                             </div>
                                             <div className="card-body">
                                                 <h5>{type}</h5>
@@ -79,22 +78,22 @@ function AddWorkerForm({type}){
                                                             <div className="form-group">
                                                                 <label htmlFor="name">Full Name</label>
                                                                 <input type="text" className="form-control" value={formik.values.name} id="name" placeholder="Full Name" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                                {formik.errors.name ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.name}</small>: null}
+                                                                {formik.errors.name ? <small id="nameError" className="error form-text text-muted error "> {}</small>: null}
                                                             </div>
                                                             <div className="form-group">
                                                                 <label htmlFor="nic">NIC</label>
                                                                 <input type="text" className="form-control" id="nic" value={formik.values.nic} placeholder="Eg: 987654321v" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                                {formik.errors.nic ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.nic}</small>: null}
+                                                                {formik.errors.name ? <small id="nameError" className="error form-text text-muted error "> {}</small>: null}
                                                             </div>
                                                             <div className="form-group">
                                                                 <label htmlFor="email">Email address</label>
                                                                 <input type="email" className="form-control" value={formik.values.email} id="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                                {formik.errors.email ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.email}</small>: null}
+                                                                {formik.errors.email ? <small id="nameError" className="error form-text text-muted error "> {}</small>: null}
                                                             </div>
                                                             <div className="form-group">
                                                                 <label htmlFor="phone">Phone Number</label>
                                                                 <input type="tel" className="form-control" value={formik.values.phone} pattern="[0-9]{10}" id="phone" placeholder="Phone Number" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                                {formik.errors.phone ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.phone}</small>: null}
+                                                                {formik.errors.phone ? <small id="nameError" className="error form-text text-muted error "> {}</small>: null}
                                                             </div>
 
 
@@ -141,5 +140,5 @@ function AddWorkerForm({type}){
         </div>
     )
 }
-
-export default AddWorkerForm;
+ 
+export default AssignWorkerForm;

@@ -48,15 +48,15 @@ function NavBar(){
                         <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" className="nav-item pcoded-hasmenu">
                             <Link to="#" className="nav-link" style={{pointerEvents:"none"}}><span className="pcoded-micon"><i className="fas fa-file-word"></i></span><span className="pcoded-mtext">Ongoing Work</span></Link>
                             <ul className="pcoded-submenu">
-                                <li className="/viewWork"><Link to="" className="">View Work</Link></li>
-                                <li className="/assignWork"><Link to="" className="">Assign Workers</Link></li>
+                                <li className=""><Link to="/viewWork" className="">View Work</Link></li>
+                                <li className=""><Link to="/assignWorker" className="">Assign Workers</Link></li>
                             </ul>
                         </li>
                         <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" className="nav-item pcoded-hasmenu">
                             <Link to="#" className="nav-link" style={{pointerEvents:"none"}}><span className="pcoded-micon"><i className="fas fa-edit"></i></span><span className="pcoded-mtext">Finished Work</span></Link>
                             <ul className="pcoded-submenu">
-                                <li className="/viewWork"><Link to="" className="">View Work</Link></li>
-                                <li className="/editRating"><Link to="" className="">Edit Rating</Link></li>
+                                <li className=""><Link to="/viewWork" className="">View Work</Link></li>
+                                <li className=""><Link to="/editRating" className="">Edit Rating</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item pcoded-menu-caption">

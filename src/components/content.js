@@ -23,14 +23,16 @@ function Content(){
                                 }
                                 <Card
                                     title ='New Work Request'
-                                    symbol ={<i className="feather icon-arrow-up text-c-green f-30 m-r-10"></i>}
+                                    symbol ={<i class="fas fa-cart-plus text-c-green f-30 m-r-10"></i>}
+                                    count = '0'
                                 />
                                 {/*<!--[ New request section ] end-->
 
                                 <!--[ On going work section ] starts-->*/}
                                 <Card
                                     title ='On-going Works'
-                                    symbol = {<i className="feather icon-arrow-up text-c-green f-30 m-r-10"></i>}
+                                    symbol = {<i className="feather icon-loader text-c-green f-30 m-r-10"></i>}
+                                    count = '10'
                                 />
                                 {/*<!--[ On going work section ] end-->
 
@@ -38,6 +40,7 @@ function Content(){
                                 <Card
                                     title='New Messages'
                                     symbol = {<i class="fas fa-comment-dots text-c-green f-30 m-r-10"></i>}
+                                    count = '100'
                                 />
                                 {/*<!--[ Messages section ] end-->
 
@@ -49,21 +52,7 @@ function Content(){
                                 //<!-- [ statistics year chart ] start -->
                                 }
                                 <div className="col-xl-4 col-md-6">
-                                    <div className="card card-event">
-                                        <div className="card-block">
-                                            <div className="row align-items-center justify-content-center">
-                                                <div className="col">
-                                                    <h5 className="m-0">Upcoming Event</h5>
-                                                </div>
-                                                <div className="col-auto">
-                                                    <label className="label theme-bg2 text-white f-14 f-w-400 float-right">34%</label>
-                                                </div>
-                                            </div>
-                                            <h2 className="mt-3 f-w-300">45<sub className="text-muted f-14">Competitors</sub></h2>
-                                            <h6 className="text-muted mt-4 mb-0">You can participate in event </h6>
-                                            <i className="fab fa-angellist text-c-purple f-50"></i>
-                                        </div>
-                                    </div>
+                                    
                                     <div className="card">
                                         <div className="card-block border-bottom">
                                             <div className="row d-flex align-items-center">
@@ -72,7 +61,7 @@ function Content(){
                                                 </div>
                                                 <div className="col">
                                                     <h3 className="f-w-300">235</h3>
-                                                    <span className="d-block text-uppercase">TOTAL IDEAS</span>
+                                                    <span className="d-block text-uppercase">TOTAL BRANCHES</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,18 +77,12 @@ function Content(){
                                             </div>
                                         </div>
                                     </div>
+                                {/*<!-- [ rating list ] starts-->*/}
+                                    <RatingList/>    
+                                {/*<!-- [ rating list ] end-->*/}
                                 </div>
                                {/* <!-- [ statistics year chart ] end -->
-                            
-                                <!-- [ rating list ] starts-->*/}
-                                <div className="col-xl-4">
-                                  <RatingList/>
-                                </div>
-                                
-                                {/*<!-- [ rating list ] end-->*/}
-
-                                {//<!-- [ Main Content ] end --> 
-                                }
+                                {<!-- [ Main Content ] end --> */}
                             </div>
                             
                         </div>
