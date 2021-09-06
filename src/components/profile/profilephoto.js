@@ -9,7 +9,7 @@ function PhotoCard(){
                         <h5>Profile</h5>
                     </div>
                     <div>
-                        <img src="assets/images/user/profile.jpg" style={{display:'block',height:'200px',width:'250px',margin:'auto',paddingTop:'15px',justifyContent:'center'}}/> 
+                        <img src="assets/images/user/profile.jpg" alt="" style={{display:'block',height:'200px',width:'250px',margin:'auto',paddingTop:'15px',justifyContent:'center'}}/> 
                     </div>
                     <hr/>
                    <div style={{ margin:'15px',display:'flex'}}>

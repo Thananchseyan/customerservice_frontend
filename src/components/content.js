@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom';
-
 import Card from "./card";
 import Notificator from './notification/notificator';
 import RatingList from "./ratingSection/ratingList";

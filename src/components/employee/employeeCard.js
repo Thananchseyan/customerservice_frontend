@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const EmployeeCard = ({type}) => {
     return ( 
-        <div className="col-12 col-sm-6 col-md-6 col-xl-4">
+    <div className="col-12 col-sm-6 col-md-6 col-xl-4">
         <div className="card-container ">
             <div className="card-employee">
                 <div className="bg">
@@ -14,7 +14,7 @@ const EmployeeCard = ({type}) => {
                         <Link to="/editWorker"><i className="fa fa-cog" title="Edit" aria-label="edit"></i></Link>
                     </div>
                     <div className="profile-pic">
-                        <img className="employee-img" src="assets/images/user/avatar-1.jpg"/>
+                        <img className="employee-img" src="assets/images/user/avatar-1.jpg" alt=""/>
                     </div>
                     
                     <p className="p"><b>Thakshayan Thanabalasingam</b></p>

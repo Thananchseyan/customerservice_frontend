@@ -55,7 +55,7 @@ function NavBar(){
                         <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" className="nav-item pcoded-hasmenu">
                             <Link to="#" className="nav-link" style={{pointerEvents:"none"}}><span className="pcoded-micon"><i className="fas fa-edit"></i></span><span className="pcoded-mtext">Finished Work</span></Link>
                             <ul className="pcoded-submenu">
-                                <li className=""><Link to="/viewWork" className="">View Work</Link></li>
+                                <li className=""><Link to="/viewFinishedWork" className="">View Work</Link></li>
                                 <li className=""><Link to="/editRating" className="">Edit Rating</Link></li>
                             </ul>
                         </li>
