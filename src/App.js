@@ -14,6 +14,7 @@ import AssignWorker from "./pages/assignWorker";
 import ViewWork from "./pages/viewWork";
 import ReviewUpdate from "./pages/changeReview";
 import Work from "./pages/work";
+import RemoveEmployee from "./pages/removeEmployee";
 
 
 function App() {
@@ -64,6 +65,12 @@ function App() {
         </Route>
         <Route exact path='/editRating'>
           <ReviewUpdate/>
+        </Route>
+        <Route exact path='/removeWorker'>
+          <RemoveEmployee type="Worker"/>
+        </Route>
+        <Route exact path='/removeModerator'>
+          <RemoveEmployee type="Moderator" />
         </Route>
       </Switch>
       

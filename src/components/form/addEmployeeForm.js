@@ -1,3 +1,9 @@
+
+
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+
+
 const AddEmployee = () => {
 
     const validate = values => {
@@ -11,22 +17,7 @@ const AddEmployee = () => {
     
     };
 
-    // validationSchema: Yup.object({
-    //     name: Yup.string()
-    //         .required('required'),
-    //     nic: Yup.string()
-    //         .required('required'),
-    //     id: Yup.string()
-    //         .required('required'),
-    //     phone: Yup.number()
-    //         .required('required'),
-    //     email: Yup.string()
-    //         .email('invalid email Address')
-    //         .required('required'),
-    //     password: Yup.string()
-    //         .required('required')
-    // })
-
+    
     const formik = useFormik({
         initialValues:{
             name:'',
@@ -38,7 +29,22 @@ const AddEmployee = () => {
             type:'Moderator',
             password:''
         },
-        validate,
+        validationSchema: Yup.object({
+            name: Yup.string()
+                .required('required'),
+            nic: Yup.string()
+                .required('required'),
+            id: Yup.string()
+                .required('required'),
+            phone: Yup.number()
+                .required('required'),
+            email: Yup.string()
+                .email('invalid email Address')
+                .required('required'),
+            password: Yup.string()
+                .required('required')
+        })
+    ,
         onSubmit: values => {
             alert(JSON.stringify(values,null,2))
             const employee = values
