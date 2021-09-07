@@ -62,6 +62,9 @@ function App() {
         <Route exact path='/work'>
           <Work/>
         </Route>
+        <Route exact path='/editRating'>
+          <ReviewUpdate/>
+        </Route>
       </Switch>
       
       

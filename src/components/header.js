@@ -4,7 +4,7 @@ function Header(){
     return(
         <header className="navbar pcoded-header navbar-expand-lg navbar-light">
             <div className="m-header">
-                <a className="mobile-menu" id="mobile-collapse1" href="#0" ><span></span></a>
+                <a className="mobile-menu" id="mobile-collapse1" href="#" ><span></span></a>
                 <Link to="/" className="b-brand">
                        <div className="b-bg">
                            <i className="feather icon-trending-up"></i>

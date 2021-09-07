@@ -1,18 +1,10 @@
-import { useState } from 'react';
-import {Link} from 'react-router-dom';
 import BreadCrumb from './breadcrumb';
 import SearchBar from './searchBar';
 import PaginationBar from './pagination';
-
-import {useFormik} from 'formik';
-import * as Yup from 'yup';
 import NotificationBar from './notification/notificationBar';
-import EmployeeCard from './employee/employeeCard';
 
 
-
-const ViewWorks = () => {
-    
+const ViewWorks = () => {    
     return(  
         <div className="pcoded-main-container">
             <div className="pcoded-wrapper">
@@ -50,10 +42,6 @@ const ViewWorks = () => {
                                         </div>
                                     </div>
                                     {/*<!-- [ view-table ] end -->*/}
-
-
-
-
 
                                 </div>
                             </div>

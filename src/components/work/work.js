@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Card from "../card";
-import ProfileCard from "../profile/profileCard"
+import FinishCard from "../finishCard";
 
 const WorkProfile = () => {
     return ( 
@@ -121,6 +121,8 @@ const WorkProfile = () => {
 
                                 
                                 <div className="col-md-12 col-xl-6">
+
+                                    
                                     {/*<!-- [ customer info ] starts-->*/}
                                     <div className="card yearly-sales">
                                         <div className="card-block" style={{padding:'10px 30px 10px 30px'}}>
@@ -175,6 +177,16 @@ const WorkProfile = () => {
                                         </div>
                                     </div>
                                     {/*<!--[ customer info ] end-->*/}
+
+                                    {/*<!-- [ finish button ] starts-->*/}
+                                    <FinishCard
+                                        title='Finish the work'
+                                        icon ={<i class="fas fa-check-circle" style={{paddingLeft:'10px'}}></i>}
+                                        button = 'confirm finish'
+                                        buttonClass = 'btn-success'
+                                    />
+                                    {/*<!-- [ finish button ] end-->*/}
+
                                     {/*<!-- [ rating card ] starts-->*/} 
                                     <div className="card user-list" >
                                         <div className="card-header" style={{margin:'10px 0px 0px 20px'}}>
@@ -198,6 +210,7 @@ const WorkProfile = () => {
                                         </div>
                                     </div>
                                     {/*<!-- [ rating list ] end-->*/}
+                                    
                                 </div>
                                 
                                           

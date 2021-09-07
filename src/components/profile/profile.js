@@ -1,3 +1,4 @@
+import FinishCard from '../finishCard';
 import Notificator from '../notification/notificator';
 import RatingList from "../ratingSection/ratingList";
 import ProfileCard from './profileCard';
@@ -36,6 +37,16 @@ function ProfileContent(){
                                     <!-- [ rating list ] starts-->*/}
                                     <RatingList/>
                                     {/*<!-- [ rating list ] end-->*/}
+
+                                    {/*<!-- [ finish button ] starts-->*/}
+                                    <FinishCard
+                                        title='Remove Employee'
+                                        icon ={<i class="fas fa-user-slash" style={{paddingLeft:'10px'}}></i>}
+                                        button = 'Suspend'
+                                        buttonClass = 'btn-danger'
+                                    />
+                                    {/*<!-- [ finish button ] end-->*/}
+
                                 </div>
                                 
 
