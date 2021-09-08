@@ -27,7 +27,7 @@ const WorkProfile = () => {
                                 {/*<!--[ Messages section ] starts-->*/}
                                 <Card
                                     title='New Messages'
-                                    symbol = {<i class="fas fa-comment-dots text-c-green f-30 m-r-10"></i>}
+                                    symbol = {<i className="fas fa-comment-dots text-c-green f-30 m-r-10"></i>}
                                     count = '100'
                                 />
                                 {/*<!--[ Messages section ] end-->*/}
@@ -36,7 +36,7 @@ const WorkProfile = () => {
                                 {/*<!--[ Workers detail link section ] starts-->*/}
                                 <Card
                                     title='Assigned Workers'
-                                    symbol = {<i class="fas fa-users text-c-green f-30 m-r-10"></i>}
+                                    symbol = {<i className="fas fa-users text-c-green f-30 m-r-10"></i>}
                                     count = '100'
                                 />
                                 {/*<!--[ Workers detail link section ] end-->*/}
@@ -170,7 +170,7 @@ const WorkProfile = () => {
                                             <div style={{paddingTop:"20px",float:"right"}}>
                                                 <button className="btn btn-mtd btn-primary" style={{width:"100px",height:"25px",padding:'0 0'}}> 
                                                     View 
-                                                    &nbsp; <i class="far fa-eye"></i>
+                                                    &nbsp; <i className="far fa-eye"></i>
                                                 </button>
                                             </div>
                                         
@@ -181,7 +181,7 @@ const WorkProfile = () => {
                                     {/*<!-- [ finish button ] starts-->*/}
                                     <FinishCard
                                         title='Finish the work'
-                                        icon ={<i class="fas fa-check-circle" style={{paddingLeft:'10px'}}></i>}
+                                        icon ={<i className="fas fa-check-circle" style={{paddingLeft:'10px'}}></i>}
                                         button = 'confirm finish'
                                         buttonClass = 'btn-success'
                                     />
@@ -201,7 +201,7 @@ const WorkProfile = () => {
                                                     <h6 className="d-flex  align-items-center float-right m-0" style={{padding:'10px 30px 0px 30px'}}> 
                                                         <Link to="#" className="btn btn-primary" style={{width:'100px',height:'25px',padding:'0px 0px',background:'#038fcf'}}>
                                                             View
-                                                            <i class="far fa-eye" style={{paddingLeft:'10px'}}></i>
+                                                            <i className="far fa-eye" style={{paddingLeft:'10px'}}></i>
                                                         </Link>
                                                     </h6>
                                                 </div>

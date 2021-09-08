@@ -8,7 +8,7 @@ const FinishCard = ({title,button,icon,buttonClass}) => {
                                             
                                             
                 <div style={{paddingTop:"20px",float:"right"}}>
-                    <button className= {`btn btn-mtd ${buttonClass}`} style={{width:"250px",height:"25px",padding:'0 0'}}> 
+                    <button className= {`btn btn-mtd ${buttonClass}`} style={{width:"150px",height:"25px",padding:'0 0'}}> 
                         {button}
                         {icon} 
                         

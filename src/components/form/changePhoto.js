@@ -4,7 +4,7 @@ const PhotoUpdate  = () => {
             <form>
                 <div className="form-group">
                     <label htmlFor="photo">Upload photo</label>
-                    <input type="text" className="form-control" value="" id="photo" placeholder="Photo" required/>
+                    <input type="text" className="form-control" value="" id="photo" placeholder="Photo" onChange={e => {}} required/>
                     <small id="photoError" className="error form-text text-muted error "> </small>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>                                                                        

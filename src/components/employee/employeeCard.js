@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
-const EmployeeCard = ({type}) => {
+const EmployeeCard = ({content,type}) => {
+
+    if (!type){
+        type=content.type;
+    }
+
     return ( 
     <div className="col-12 col-sm-6 col-md-6 col-xl-4">
         <div className="card-container ">
@@ -17,14 +22,14 @@ const EmployeeCard = ({type}) => {
                         <img className="employee-img" src="assets/images/user/avatar-1.jpg" alt=""/>
                     </div>
                     
-                    <p className="p"><b>Thakshayan Thanabalasingam</b></p>
+                    <p className="p"><b>{content.name}</b></p>
                     
                     <p className="p" style={{marginTop:"10px"}}>|&nbsp; {type} &nbsp; |  </p>
 
                     <div className="details">
-                        <div> <i className="fas fa-user icon"></i> {type} ID : ID001 </div>
-                        <div> <i className="fas fa-phone icon" style={{color:"green"}}></i> Tel : 0777777777 </div>
-                        <div> <i className="fas fa-envelope-square icon" style={{color:"#800000"}}></i> Email : user@gmail.com </div>
+                        <div> <i className="fas fa-user icon"></i> {type} ID :  {content.workerId} </div>
+                        <div> <i className="fas fa-phone icon" style={{color:"green"}}></i> Tel : {content.phone} </div>
+                        <div> <i className="fas fa-envelope-square icon" style={{color:"#800000"}}></i> Email : {content.email} </div>
                     </div>
                     <div className="employeeCard-footer">
                     <button className="btn-follow" aria-label="view more">

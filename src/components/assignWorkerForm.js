@@ -26,9 +26,9 @@ const AssignWorkerForm = ({type}) => {
                                 <div className="row">
                                     
                                     {/*<!-- [ Assign-table ] end -->*/}
-                                    <div class="col-xl-12">
-                                        <div class="card">
-                                            <div class="card-header">
+                                    <div className="col-xl-12">
+                                        <div className="card">
+                                            <div className="card-header">
                                                 <h5>Assign Workers Details</h5>
                                             </div>
                                             <div className="" style={{marginTop:'20px'}}>
@@ -39,7 +39,7 @@ const AssignWorkerForm = ({type}) => {
                                             <div className="card-block px-0 py-3">
                                                 <div className="">
                                                     <div className="">
-                                                        <div class="">
+                                                        <div className="">
                                                             <NotificationBar/>       
                                                         </div>
                                                     </div>

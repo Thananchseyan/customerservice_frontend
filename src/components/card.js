@@ -7,7 +7,7 @@ function Card({title,symbol,count}){
                 <div className="card-block">
                     <div className="" style={{display:'block',float:'right'}}> 
                         <Link to="" title="Go" aria-label="go to the page">
-                            <i class="fas fa-arrow-right"></i>
+                            <i className="fas fa-arrow-right"></i>
                         </Link>     
                     </div>
                     <br/>

@@ -3,12 +3,12 @@ const PasswordChanger = () => {
         <form>
             <div className="form-group">
                 <label htmlFor="password">Password</label>
-                <input type="password" className="form-control" value="" id="password" placeholder="Password"  required/>
+                <input type="password" className="form-control" value="" id="password" placeholder="Password" onChange={e => {}} required/>
                 <small id="nameError" className="error form-text text-muted error "> </small>
             </div>
             <div className="form-group">
                 <label htmlFor="confirmPassword">Confirm Password</label>
-                <input type="password" className="form-control" id="confirmPassword"  placeholder="Confirm Password" required/>
+                <input type="password" className="form-control" id="confirmPassword"  placeholder="Confirm Password" onChange={e => {}} required/>
                 <small id="nameError" className="error form-text text-muted error "> </small>
             </div>
                 <button type="submit" className="btn btn-primary">Submit</button>

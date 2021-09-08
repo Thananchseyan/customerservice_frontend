@@ -18,10 +18,11 @@ const RemoveEmployeeCard = ({type}) => {
                             {/*<!-- [ Remove card ] start -->*/}
                             <ChangeCard
                                 title = {`Remove ${type}`}
-                                childComponent ={ 
+                                childComponent ={
+                                     
                                     <FinishCard
                                         title= {`Remove ${type}`}
-                                        icon ={<i class="fas fa-user-slash" style={{paddingLeft:'10px'}}></i>}
+                                        icon ={<i className="fas fa-user-slash" style={{paddingLeft:'10px'}}></i>}
                                         button = 'Suspend'
                                         buttonClass = 'btn-danger'
                                     />
