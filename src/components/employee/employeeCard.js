@@ -32,10 +32,10 @@ const EmployeeCard = ({content,type}) => {
                         <div> <i className="fas fa-envelope-square icon" style={{color:"#800000"}}></i> Email : {content.email} </div>
                     </div>
                     <div className="employeeCard-footer">
-                    <button className="btn-follow" aria-label="view more">
+                    <Link to={`/profile/${content.workerId}`} className="btn-follow" aria-label="view more">
                         View More &nbsp;
                         <i className="fas fa-arrow-alt-circle-right" aria-hidden="true" ></i>
-                    </button>
+                    </Link>
                 </div>
                 </div>
             </div>

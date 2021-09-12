@@ -5,46 +5,46 @@ import ChangeCard from './form/changeCard';
 
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
-import { emailValidator, emptyValidator, nicValidator, passwordValidator, phoneValidator } from './formComponents/formValidator';
+import {useState} from 'react';
+
+//import { emailValidator, emptyValidator, nicValidator, passwordValidator, phoneValidator } from './formComponents/formValidator';
 
 function AddWorkerForm({type}){
 
-    const validate = values => {
-        let errors = {};
+    // const validate = values => {
+    //     const errors = {};
 
-        errors.name = emptyValidator(values.name,"Please enter a valid Full Name");
-        errors.phone = phoneValidator(values.phone);
-        errors.nic = nicValidator(values.nic);
-        errors.email = emailValidator(values.email);
-        errors.password = passwordValidator(values.password);
-        errors.date = emptyValidator(values.date,"Please select a date");
-        errors.id = emptyValidator(values.id,"Please enter the Worker ID");
-        errors.confirmPassword = (values.password !== values.confirmPassword)?"Passwords not matching":null;
+    //     errors.name = emptyValidator(values.name,"Please enter a valid Full Name");
+    //     errors.phone = phoneValidator(values.phone);
+    //     errors.nic = nicValidator(values.nic);
+    //     errors.email = emailValidator(values.email);
+    //     errors.password = passwordValidator(values.password);
+    //     errors.date = emptyValidator(values.date,"Please select a date");
+    //     errors.id = emptyValidator(values.id,"Please enter the Worker ID");
+    //     errors.confirmPassword = (values.password !== values.confirmPassword)?"Passwords not matching":null;
 
 
-        if (errors.name || errors.phone || errors.nic || errors.email || errors.password || errors.date || errors.id || errors.confirmPassword){
-            return errors;
-        }
-        errors = {};
-        return errors;
+    //     if (errors.name || errors.phone || errors.nic || errors.email || errors.password || errors.date || errors.id || errors.confirmPassword){
+    //         return errors;
+    //     }
+    //     const error = {};
+    //     return error;
     
+    // };
+
+    const toggleAddPassword = (e) => {
+        if (addPassword == "password"){
+            setAddPassword("text");
+            setAddClassName('fa fa-eye-slash');
+        }else{
+            setAddPassword("password");
+            setAddClassName('fa fa-eye');
+        } 
     };
 
-    validationSchema: Yup.object({
-        name: Yup.string()
-            .required('required'),
-        nic: Yup.string()
-            .required('required'),
-        id: Yup.string()
-            .required('required'),
-        phone: Yup.number()
-            .required('required'),
-        email: Yup.string()
-            .email('invalid email Address')
-            .required('required'),
-        password: Yup.string()
-            .required('required')
-    })
+    const [addPassword,setAddPassword] = useState("password");
+    const [addClassName, setAddClassName] = useState("fa fa-eye");
+    const [id,setID] = useState('');
     
     const formik = useFormik({
         initialValues:{
@@ -56,7 +56,30 @@ function AddWorkerForm({type}){
             email:'',
             type:'Moderator',
             password:''
-        },validate,
+        },validationSchema: Yup.object({
+            name: Yup.string()
+                .required('Please enter the full name'),
+            nic: Yup.string()
+                .required('Please enter the NIC')
+                .matches(/^([0-9]{12})|([0-9]{9}(v|V))$/,"Enter a valid nic"),
+            id: Yup.string()
+                .required('Please enter the Worker ID'),
+            phone: Yup.number()
+                .required('Please enter the phone number'),
+            date:Yup.date()
+                .required("Please select a date"),
+            email: Yup.string()
+                .email('Invalid email Address')
+                .required('Please enter the email address'),
+            password:  Yup.string()
+                .required('Please enter the password')
+                .min(4,"Password should be more than 3 letters")
+                .matches(/[A-Z]/,"Password should have a capital letter")
+                .matches(/[0-9]/,"Password should have numbers"),
+            confirmPassword: Yup.string()
+                .required("Please confirm the password")
+                .oneOf([Yup.ref('passwordUpdate'),null],"Password must match")
+        }),
         onSubmit: values => {
             alert(JSON.stringify(values,null,2))
             const employee = values
@@ -144,12 +167,14 @@ function AddWorkerForm({type}){
                                                             </div>
                                                             <div className="form-group">
                                                                 <label htmlFor="password">Password</label>
-                                                                <input type="password" className="form-control" value={formik.values.password} id="password" placeholder="Password" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
+                                                                <input type={addPassword} className="form-control" value={formik.values.password} id="password" placeholder="Password" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
+                                                                <i className={addClassName} id="visibile" style={{float:"right",cursor:"pointer",transform:"translate(-10px,-30px)"}} onClick={toggleAddPassword}></i>
                                                                 {formik.touched.password && formik.errors.password ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.password}</small>: null}
                                                             </div>
                                                             <div className="form-group">
                                                                 <label htmlFor="confirmPassword">Confirm Password</label>
-                                                                <input type="password" className="form-control" id="confirmPassword"  placeholder="Confirm Password" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
+                                                                <input type={addPassword} className="form-control" id="confirmPassword"  placeholder="Confirm Password" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
+                                                                <i className={addClassName} id="visibile" style={{float:"right",cursor:"pointer",transform:"translate(-10px,-30px)"}} onClick={toggleAddPassword}></i>
                                                                 {formik.touched.confirmPassword && formik.errors.confirmPassword ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.confirmPassword}</small>: null}
                                                             </div>
                                                     </div>
@@ -167,6 +192,7 @@ function AddWorkerForm({type}){
                                 {/*<!-- [ photo form ] start -->*/}
                                 <ChangeCard
                                     title ='Change profile'
+                                    setID = {setID}
                                     childComponent ={<PhotoUpdate/>}
                                 />
                                 {/*<!-- [ photo form ] end -->*/}
@@ -174,7 +200,11 @@ function AddWorkerForm({type}){
                                 {/*<!-- [ password update form ] start -->*/}
                                 <ChangeCard
                                     title ='Change Password'
-                                    childComponent ={<PasswordChanger/>}
+                                    setID = {setID}
+                                    childComponent ={
+                                        <PasswordChanger
+                                            id={id}
+                                        />}
                                 />
                                 {/*<!-- [ password update form ] end -->*/}
 

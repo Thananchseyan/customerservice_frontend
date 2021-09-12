@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
 import FinishCard from '../finishCard';
 import Notificator from '../notification/notificator';
 import RatingList from "../ratingSection/ratingList";
@@ -6,6 +8,10 @@ import PhotoCard from './profilephoto';
 import WorkerInfoCard from "./workerInfoCard";
 
 function ProfileContent(){
+
+    const {id} = useParams();
+    
+
     return(
         <div className="pcoded-main-container">
             <div className="pcoded-wrapper">
@@ -26,24 +32,25 @@ function ProfileContent(){
                                 {/*<!--[ profile section ] end-->
 
                                 /*<!--[ basic info section ] start-->*/}
-                                <ProfileCard/>
+                                <ProfileCard id={id} />
                                 {/*<!--[ basic info section ] end-->*/}
 
                                 <div className="col-xl-4">
                                     {/*<!--[ Worker info section ] starts-->*/}
-                                    <WorkerInfoCard/>
+                                    <WorkerInfoCard id={id} />
                                     {/*<!--[ Worker info section ] end-->
 
                                     <!-- [ rating list ] starts-->*/}
-                                    <RatingList/>
+                                    <RatingList id={id} />
                                     {/*<!-- [ rating list ] end-->*/}
 
                                     {/*<!-- [ finish button ] starts-->*/}
                                     <FinishCard
                                         title='Remove Employee'
-                                        icon ={<i class="fas fa-user-slash" style={{paddingLeft:'10px'}}></i>}
+                                        icon ={<i className="fas fa-user-slash" style={{paddingLeft:'10px'}}></i>}
                                         button = 'Suspend'
                                         buttonClass = 'btn-danger'
+                                        id = {id}
                                     />
                                     {/*<!-- [ finish button ] end-->*/}
 

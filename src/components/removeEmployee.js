@@ -1,8 +1,12 @@
 import BreadCrumb from "./breadcrumb";
 import ChangeCard from "./form/changeCard";
 import FinishCard from "./finishCard";
+import { useState } from "react";
 
 const RemoveEmployeeCard = ({type}) => {
+
+    const [id,setID] = useState('');
+
     return ( 
     <div className="pcoded-main-container">
         <div className="pcoded-wrapper">
@@ -18,6 +22,7 @@ const RemoveEmployeeCard = ({type}) => {
                             {/*<!-- [ Remove card ] start -->*/}
                             <ChangeCard
                                 title = {`Remove ${type}`}
+                                setID = {setID}
                                 childComponent ={
                                      
                                     <FinishCard
@@ -25,6 +30,7 @@ const RemoveEmployeeCard = ({type}) => {
                                         icon ={<i className="fas fa-user-slash" style={{paddingLeft:'10px'}}></i>}
                                         button = 'Suspend'
                                         buttonClass = 'btn-danger'
+                                        id = {id}
                                     />
                                 }
                             />

@@ -16,6 +16,8 @@ import ReviewUpdate from "./pages/changeReview";
 import Work from "./pages/work";
 import RemoveEmployee from "./pages/removeEmployee";
 
+import ChangeCard from "./components/form/changeCard";
+import PasswordChanger from "./components/form/changePassword";
 
 function App() {
   return (
@@ -45,7 +47,7 @@ function App() {
         <Route exact path='/viewModerator'>
           <ViewEmployee type="Moderator"/>
         </Route>
-        <Route exact path='/profile'>
+        <Route exact path='/profile/:id'>
           <Profile/>
         </Route>
         <Route exact path='/assignWorker'>

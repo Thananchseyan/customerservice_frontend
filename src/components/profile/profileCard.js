@@ -1,4 +1,20 @@
-const ProfileCard = () => {
+import { useEffect } from "react";
+import { useState } from "react";
+
+const ProfileCard = ({id}) => {
+
+
+    const [content,setContent] = useState([]);
+
+    useEffect(async ()=>{
+        await fetch(`http://localhost:8000/serviceprovider/getbasic/${id}`)
+            .then(res => res.json())
+            .then(data => setContent(data));
+
+        console.log(content)
+
+    },[])
+
     return (  
         <div className="col-xl-7">
             <div className="card yearly-sales">
@@ -12,7 +28,7 @@ const ProfileCard = () => {
                                 Full Name:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                Thakshayan Thanabalasingam
+                                {content.name}
                             </div>
                         </div>
                         <hr/>
