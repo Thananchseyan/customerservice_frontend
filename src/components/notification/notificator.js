@@ -11,7 +11,7 @@ function Notificator(){
                 <div className="card-block px-0 py-3">
                     <div className="">
                         <div className="">
-                            <div class="">
+                            <div className="">
                                 <NotificationBar/>
                                 <NotificationBar/>
                                 <NotificationBar/>        

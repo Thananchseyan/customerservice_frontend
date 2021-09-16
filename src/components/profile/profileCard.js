@@ -6,29 +6,32 @@ const ProfileCard = ({id}) => {
 
     const [content,setContent] = useState([]);
 
-    useEffect(async ()=>{
-        await fetch(`http://localhost:8000/serviceprovider/getbasic/${id}`)
+    useEffect(()=>{
+        fetch(`http://localhost:8000/serviceprovider/getbasic/${id}`)
             .then(res => res.json())
-            .then(data => setContent(data));
-
-        console.log(content)
+            .then(data => {
+                setContent(data)
+            })
+            .catch(err=> console.log);
 
     },[])
 
     return (  
-        <div className="col-xl-7">
+        <div className="">
             <div className="card yearly-sales">
                 <div className="card-block" style={{padding:'10px 30px 10px 30px'}}>
                     <div className="card-header">
                         <h5>Basic info</h5>
                     </div>
+
+                    {content[0] ?
                     <div className="" style={{paddingTop:"25px"}}>
                         <div className="row" style={{display:"flex"}}>
                             <div className="col-4 col-md-4 col-sm-4">
                                 Full Name:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                {content.name}
+                                {content[0].name}
                             </div>
                         </div>
                         <hr/>
@@ -38,7 +41,7 @@ const ProfileCard = ({id}) => {
                                 NIC:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                988765432125
+                                {content[0].nic}
                             </div>
                         </div>
                         <hr/>
@@ -47,7 +50,7 @@ const ProfileCard = ({id}) => {
                                 Email:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                Thakshayan007@gmail.com
+                                {content[0].email}
                             </div>
                         </div>
                         <hr/>
@@ -60,6 +63,8 @@ const ProfileCard = ({id}) => {
                             </div>
                         </div>
                     </div>
+                    :null}
+
                     <div style={{paddingTop:"20px",float:"right"}}>
                         <button className="btn btn-mtd btn-primary" style={{width:"100px",height:"25px",padding:'0 0'}}> 
                             Edit 

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
+import { useState } from 'react';
 import FinishCard from '../finishCard';
 import Notificator from '../notification/notificator';
 import RatingList from "../ratingSection/ratingList";
@@ -11,6 +12,18 @@ function ProfileContent(){
 
     const {id} = useParams();
     
+    const [content,setContent] = useState([0]);
+
+    useEffect(()=>{
+        fetch(`http://localhost:8000/serviceprovider/getprofile/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setContent(data);
+                console.log(content);
+            })
+            .catch(err=> console.log);
+
+    },[])
 
     return(
         <div className="pcoded-main-container">
@@ -32,7 +45,10 @@ function ProfileContent(){
                                 {/*<!--[ profile section ] end-->
 
                                 /*<!--[ basic info section ] start-->*/}
-                                <ProfileCard id={id} />
+                                <div className="col-xl-7">
+                                    <ProfileCard id={id} />
+                                </div>
+                                
                                 {/*<!--[ basic info section ] end-->*/}
 
                                 <div className="col-xl-4">

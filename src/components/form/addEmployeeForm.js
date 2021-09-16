@@ -6,18 +6,7 @@ import * as Yup from 'yup';
 
 const AddEmployee = () => {
 
-    const validate = values => {
-        const errors = {};
 
-        if(!values.name){
-            errors.name = 'Please enter the Full Name';
-        }
-
-        return errors;
-    
-    };
-
-    
     const formik = useFormik({
         initialValues:{
             name:'',

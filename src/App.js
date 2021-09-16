@@ -15,6 +15,7 @@ import ViewWork from "./pages/viewWork";
 import ReviewUpdate from "./pages/changeReview";
 import Work from "./pages/work";
 import RemoveEmployee from "./pages/removeEmployee";
+import EditEmployee from "./pages/editEmployee";
 
 import ChangeCard from "./components/form/changeCard";
 import PasswordChanger from "./components/form/changePassword";
@@ -73,6 +74,9 @@ function App() {
         </Route>
         <Route exact path='/removeModerator'>
           <RemoveEmployee type="Moderator" />
+        </Route>
+        <Route exact path='/editWorker/:id'>
+          <EditEmployee type="Worker"/>
         </Route>
       </Switch>
       

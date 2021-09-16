@@ -16,11 +16,11 @@ function NotificationBar(){
         <div className="col-7 col-sm-5 col-md-12 col-xl-4" style={{margin:'10px'}}>
             <Link to="#" className="label theme-bg2 text-white f-12">
                 Reject
-                &nbsp; <i class="far fa-trash-alt"></i>
+                &nbsp; <i className="far fa-trash-alt"></i>
             </Link>
             <Link to="#" className="label theme-bg text-white f-12">
                 View Info
-                &nbsp; <i class="far fa-eye"></i>
+                &nbsp; <i className="far fa-eye"></i>
             </Link>
         </div>
     </div>

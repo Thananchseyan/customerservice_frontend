@@ -1,4 +1,24 @@
-const WorkerInfoCard = () => {
+import { useState } from "react";
+import { useEffect } from "react";
+
+const WorkerInfoCard = ({id}) => {
+
+    const [content,setContent] = useState([]);
+
+    useEffect(()=>{
+
+        fetch(`http://localhost:8000/serviceprovider/getWorkerInfo/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setContent(data)
+                console.log(data)
+            })
+            .catch(err=> console.log);
+
+    },[])
+
+
+
     return (  
         <div className="">
             <div className="card yearly-sales">
@@ -6,23 +26,24 @@ const WorkerInfoCard = () => {
                     <div className="card-header">
                         <h5>Worker info</h5>
                     </div>
+                    {content[0] ?
                     <div className="" style={{paddingTop:"25px"}}>
+                        
                         <div className="row" style={{display:"flex"}}>
                             <div className="col-6 col-md-6">
                                 Worker ID:
                             </div>
                             <div className="col-6 col-md-6">
-                                001
+                                {content[0].workerId}
                             </div>
                         </div>
                         <hr/>
-                        
                         <div className="row" style={{display:"flex"}}>
                             <div className="col-6 col-md-6">
                                 Designation:
                             </div>
                             <div className="col-6 col-md-6">
-                                Moderator
+                                {content[0].type}
                             </div>
                         </div>
                         <hr/>
@@ -31,7 +52,7 @@ const WorkerInfoCard = () => {
                                 Joined Date:
                             </div>
                             <div className="col-6 col-md-6">
-                                20/10/2010
+                                {content[0].date}
                             </div>
                         </div>
                         <hr/>
@@ -40,7 +61,7 @@ const WorkerInfoCard = () => {
                                 Total Works:
                             </div>
                             <div className="col-6 col-md-6">
-                                200
+                                {content[0].works}
                             </div>
                         </div>
                         <hr/>
@@ -49,10 +70,11 @@ const WorkerInfoCard = () => {
                                 Left Date:
                             </div>
                             <div className="col-6 col-md-6">
-                                ...
+                                {content[0].leftDate?content[0].leftDate:"..."}
                             </div>
                         </div>
                     </div>
+                    :null}
                     <div style={{paddingTop:"20px",float:"right"}}>
                         <button className="btn btn-mtd btn-primary" style={{width:"100px",height:"25px",padding:'0 0'}}> 
                             Edit 
