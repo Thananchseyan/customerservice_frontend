@@ -119,3 +119,12 @@ svg{
         margin-left: 0px;
     }
 }
+
+.chartCard{
+    border:20px solid aliceblue;
+    padding: 0px;
+}
+
+.chartCard>.card-block{
+    padding:0px,
+}

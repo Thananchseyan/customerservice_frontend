@@ -46,6 +46,13 @@ function NavBar(){
                             <label>Works</label>
                         </li>
                         <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" className="nav-item pcoded-hasmenu">
+                            <Link to="#" className="nav-link" style={{pointerEvents:"none"}}><span className="pcoded-micon"><i className="fas fa-file-word"></i></span><span className="pcoded-mtext">New Requests</span></Link>
+                            <ul className="pcoded-submenu">
+                                <li className=""><Link to="/viewRequest" className="">View Request</Link></li>
+                                <li className=""><Link to="/addWork" className="">Add Work</Link></li>
+                            </ul>
+                        </li>
+                        <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" className="nav-item pcoded-hasmenu">
                             <Link to="#" className="nav-link" style={{pointerEvents:"none"}}><span className="pcoded-micon"><i className="fas fa-file-word"></i></span><span className="pcoded-mtext">Ongoing Work</span></Link>
                             <ul className="pcoded-submenu">
                                 <li className=""><Link to="/viewWork" className="">View Work</Link></li>

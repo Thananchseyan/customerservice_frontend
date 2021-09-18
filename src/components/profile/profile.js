@@ -12,7 +12,7 @@ function ProfileContent(){
 
     const {id} = useParams();
     
-    const [content,setContent] = useState([0]);
+    const [content,setContent] = useState([]);
 
     useEffect(()=>{
         fetch(`http://localhost:8000/serviceprovider/getprofile/${id}`)
@@ -46,14 +46,14 @@ function ProfileContent(){
 
                                 /*<!--[ basic info section ] start-->*/}
                                 <div className="col-xl-7">
-                                    <ProfileCard id={id} />
+                                    <ProfileCard id={id} edit={true} />
                                 </div>
                                 
                                 {/*<!--[ basic info section ] end-->*/}
 
                                 <div className="col-xl-4">
                                     {/*<!--[ Worker info section ] starts-->*/}
-                                    <WorkerInfoCard id={id} />
+                                    <WorkerInfoCard id={id} edit={true} />
                                     {/*<!--[ Worker info section ] end-->
 
                                     <!-- [ rating list ] starts-->*/}

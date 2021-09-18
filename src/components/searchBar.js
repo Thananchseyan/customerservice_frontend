@@ -7,13 +7,17 @@ const SearchBar = ({placeholder,setCardContent,setId}) => {
     const handleSubmit =async (e) =>{
         e.preventDefault();
 
-        await fetch(`http://localhost:8000/serviceprovider/getEmployee/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setCardContent(data);
-                setId(id);
-            })
-            .catch(err => console.log(err));
+        if (id){
+            await fetch(`http://localhost:8000/serviceprovider/getEmployee/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    setCardContent(data);
+                    setId(id);
+                })
+                .catch(err => console.log(err));
+        }else{
+            setCardContent([]);
+        }
          
     }
 

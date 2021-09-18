@@ -52,22 +52,27 @@ function AddWorkerForm({type}){
             nic:'',
             id:'',
             phone:'',
-            date:'',
+            address:'',
+            // date:'',
             email:'',
             type:'Moderator',
             password:''
         },validationSchema: Yup.object({
             name: Yup.string()
-                .required('Please enter the full name'),
+                .required('Please enter the full name')
+                .matches(/^[a-zA-Z]+\s[a-zA-Z]+$/,"Cannot have special characters and seperated with space"),
             nic: Yup.string()
                 .required('Please enter the NIC')
                 .matches(/^([0-9]{12})|([0-9]{9}(v|V))$/,"Enter a valid nic"),
             id: Yup.string()
-                .required('Please enter the Worker ID'),
+                .required('Please enter the Worker ID')
+                .matches(/^[\w\d]+$/,"can only have letters and digits"),
             phone: Yup.number()
                 .required('Please enter the phone number'),
-            date:Yup.date()
-                .required("Please select a date"),
+            address: Yup.string()
+                .required('Please fill the address'),
+            // date:Yup.date()
+            //     .required("Please select a date"),
             email: Yup.string()
                 .email('Invalid email Address')
                 .required('Please enter the email address'),
@@ -78,7 +83,7 @@ function AddWorkerForm({type}){
                 .matches(/[0-9]/,"Password should have numbers"),
             confirmPassword: Yup.string()
                 .required("Please confirm the password")
-                .oneOf([Yup.ref('passwordUpdate'),null],"Password must match")
+                .oneOf([Yup.ref('password'),null],"Password must match")
         }),
         onSubmit: values => {
             alert(JSON.stringify(values,null,2))
@@ -139,17 +144,17 @@ function AddWorkerForm({type}){
                                                                 <input type="text" className="form-control" id="nic" value={formik.values.nic} placeholder="Eg: 987654321v" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
                                                                 {formik.touched.nic && formik.errors.nic ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.nic}</small>: null}
                                                             </div>
-                                                            <div className="form-group">
-                                                                <label htmlFor="email">Email address</label>
-                                                                <input type="email" className="form-control" value={formik.values.email} id="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                                {formik.touched.email && formik.errors.email ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.email}</small>: null}
-                                                            </div>
+                                                            
                                                             <div className="form-group">
                                                                 <label htmlFor="phone">Phone Number</label>
                                                                 <input type="tel" className="form-control" value={formik.values.phone} id="phone" placeholder="Phone Number" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
                                                                 {formik.touched.phone && formik.errors.phone ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.phone}</small>: null}
                                                             </div>
-
+                                                            <div className="form-group">
+                                                                <label htmlFor="address">Address</label>
+                                                                <input type="text" className="form-control" value={formik.values.address} id="address" placeholder="Address" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
+                                                                { formik.touched.address && formik.errors.address ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.address}</small>: null}
+                                                            </div>
 
                                                         
                                                     </div>
@@ -161,10 +166,15 @@ function AddWorkerForm({type}){
                                                                 {formik.touched.id && formik.errors.id ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.id}</small>: null}
                                                             </div>
                                                             <div className="form-group">
+                                                                <label htmlFor="email">Email address</label>
+                                                                <input type="email" className="form-control" value={formik.values.email} id="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
+                                                                {formik.touched.email && formik.errors.email ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.email}</small>: null}
+                                                            </div>
+                                                            {/* <div className="form-group">
                                                                 <label htmlFor="joinedDate">Joined Date</label>
                                                                 <input type='date'  className="form-control" id="date" value={formik.values.date} placeholder="DD/MM/YYYY" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
                                                                 {formik.touched.date && formik.errors.date ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.date}</small>: null}
-                                                            </div>
+                                                            </div> */}
                                                             <div className="form-group">
                                                                 <label htmlFor="password">Password</label>
                                                                 <input type={addPassword} className="form-control" value={formik.values.password} id="password" placeholder="Password" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
@@ -179,7 +189,7 @@ function AddWorkerForm({type}){
                                                             </div>
                                                     </div>
                                                 </div>
-                                                <button type="submit" className="btn btn-primary">Submit</button>
+                                                <button type="submit" className="btn btn-primary" style={{float:"right"}}>Submit</button>
                                                         
                                             </form>
                                             </div>

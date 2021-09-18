@@ -1,22 +1,29 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { Redirect } from "react-router"
 
-const FinishCard = ({title,button,icon,buttonClass,id}) => {
+const FinishCard = ({title,button,icon,buttonClass,id,finish}) => {
+
+    const [leftDate,setLeftDate] = useState(null);
+
+    useEffect(()=>{
+
+        fetch(`http://localhost:8000/serviceprovider/checkFinish/${id}`)
+            .then((res)=>{
+                res.json()
+            })
+            .then(data => {
+                setLeftDate(data);
+                
+            })
+            .catch(err=>console.log)
+
+    },[])
+
+
 
     const deleteSubmit = ()=>{
         
-        // fetch(`http://localhost:8000/serviceprovider/deleteEmployee/${id}`,{
-        //     method: 'DELETE'
-        // })
-        //     .then((res)=>{
-        //         if(res.ok && window){
-        //             <Redirect to={{
-        //                 pathname: `/profile/${id}`,
-        //                 state: {id:id}
-        //             }}/>
-        //         }
-        //     })
-
-
             fetch(`http://localhost:8000/serviceprovider/deleteEmployee/${id}`,{
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
@@ -43,11 +50,15 @@ const FinishCard = ({title,button,icon,buttonClass,id}) => {
                                             
                                             
                 <div style={{paddingTop:"20px",float:"right"}}>
+                    {leftDate?
                     <button className= {`btn btn-mtd ${buttonClass}`} onClick={deleteSubmit} style={{width:"150px",height:"25px",padding:'0 0'}}> 
                         {button}
-                        {icon} 
-                        
-                    </button>
+                        {icon}      
+                    </button>:
+                    <button className= {`btn btn-mtd btn-success`} style={{width:"150px",height:"25px",padding:'0 0'}} disabled> 
+                        Already Finished &nbsp;
+                        <i className="fas fa-check-circle"></i>
+                    </button>}
                 </div>
             </div>
         </div>

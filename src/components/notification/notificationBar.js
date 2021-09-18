@@ -4,7 +4,7 @@ function NotificationBar(){
     return(
     <div className="unread row align-items-center" style={{marginBottom:'15px'}}>
         <div className="col-sm-2 col-md-2 col-xl-3" style={{margin:'10px'}}>
-            <img className="rounded-circle" style={{width:"40px"}} src="assets/images/user/avatar-2.jpg" alt="activity-user"/>
+            <img className="rounded-circle" style={{width:"40px"}} src="/assets/images/user/avatar-2.jpg" alt="activity-user"/>
         </div>
         <div className="col-sm-9 col-md-5 col-xl-8" style={{margin:'10px'}}>
             <h6 className="mb-1">Albert Andersen</h6>
@@ -15,7 +15,7 @@ function NotificationBar(){
         </div>
         <div className="col-7 col-sm-5 col-md-12 col-xl-4" style={{margin:'10px'}}>
             <Link to="#" className="label theme-bg2 text-white f-12">
-                Reject
+                Remove
                 &nbsp; <i className="far fa-trash-alt"></i>
             </Link>
             <Link to="#" className="label theme-bg text-white f-12">

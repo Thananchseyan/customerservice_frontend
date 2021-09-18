@@ -1,9 +1,9 @@
-import Card from "./card";
-import Notificator from './notification/notificator';
-import RatingList from "./ratingSection/ratingList";
+import Card from "../card";
+import Notificator from '../notification/notificator';
+import RatingList from "../ratingSection/ratingList";
 //import Chart1 from "./chart"
-import Chart from "./chart";
-import SummaryChart from "./pieChart";
+import Chart from "../chart";
+import SummaryChart from "../pieChart";
 // import LineChart from "./chart3";
 
 function Content(){
@@ -22,7 +22,6 @@ function Content(){
                             }
                             <div className="row">
                                 
-                            
                                 {//<!--[ New request section ] start-->
                                 }
                                 {/* <Card
@@ -32,7 +31,6 @@ function Content(){
                                 /> */}
                                 <Chart 
                                     Array = {['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun']}
-                                    Request = 'New Requests'
                                 />
                                 {/*<!--[ New request section ] end-->
 
@@ -40,26 +38,11 @@ function Content(){
                                 
                                 <Chart 
                                     Array = {['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun']}
-                                    Request = 'On Going Works '
                                 />
 
                                 {/*<!--[ Messages section ] end-->
 
-                              
-
-                                <!--[ Recent Notification ] start-->*/}
-                                <Notificator/>
-                                {/* <!--[ Recent Notification ] end-->*/}
-
-
-
-
-                                                                
-                                
-                            {/*<!-- [ statistics year chart ] start --> */}
-                                
-                                <div className="col-xl-4 col-md-6">
-
+                                <!--[ On going work section ] starts-->*/}
                                 {/* <Card
                                     title ='On-going Works'
                                     symbol = {<i className="feather icon-loader text-c-green f-30 m-r-10"></i>}
@@ -71,6 +54,15 @@ function Content(){
                                 <SummaryChart/>
                                 {/*<!--[ On going work section ] end-->
 
+                                
+                                 
+                                <!--[ Recent Notification ] start-->*/}
+                                <Notificator/>
+                                {/* <!--[ Recent Notification ] end-->
+                                
+                            <!-- [ statistics year chart ] start --> */}
+                                
+                                <div className="col-xl-4 col-md-6">
                                     
                                     <div className="card">
                                         <div className="card-block border-bottom">

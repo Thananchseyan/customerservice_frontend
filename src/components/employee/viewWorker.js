@@ -12,21 +12,48 @@ import { useState } from 'react/cjs/react.development';
 function ViewWorker({type}){
 
     const [content,setContent] = useState([]);
+    const [id,setID] = useState('');
+    const [page,setPage] = useState(0);
+    const [offSet,setOffSet] = useState(1);
 
-    useEffect(async ()=>{
 
-        await fetch(`http://localhost:8000/serviceprovider/viewWorkers`)
+    useEffect(()=>{
+
+        fetch(`http://localhost:8000/serviceprovider/viewWorkersCount`)
             .then(res => res.json())
             .then(data => {
-                setContent(data);
-                
+                setOffSet(data/3);              
             })
             .catch(err => console.log(err));
 
             
-
         
     },[]);
+
+    useEffect(()=>{
+
+        fetch(`http://localhost:8000/serviceprovider/viewWorkers?pages=${page}`)
+            .then(res => res.json())
+            .then(data => {
+                setContent(data);               
+            })
+            .catch(err => console.log(err));
+        
+        console.log(page);
+        console.log(content)
+        console.log(content.length)
+    },[page]);
+
+    const initialState = () => {
+
+        fetch(`http://localhost:8000/serviceprovider/viewWorkers`)
+            .then(res => res.json())
+            .then(data => {
+                setContent(data);               
+            })
+            .catch(err => console.log(err));
+    }
+
 
     return(  
         <div className="pcoded-main-container">
@@ -36,7 +63,7 @@ function ViewWorker({type}){
                         {/*<!-- [ breadcrumb ] start -->*/}
                         <BreadCrumb type={type} reason="View"/>
                         {/*<!-- [ breadcrumb ] end -->*/}
-                        <SearchBar/>
+                        <SearchBar  placeholder="Enter worker ID ..." setCardContent={setContent} setId={setID}/>
                         {/*<!-- [ search bar ] start -->*/}
 
                         {/*<!-- [ search bar ] end -->*/}
@@ -47,19 +74,22 @@ function ViewWorker({type}){
                                 <div className="row">
 
                                     {
-                                        
                                         content ? content.map((e) => <EmployeeCard
                                                 content = {e}
                                                 key = {e._id}
-                                        />):null
+                                        />): null
                                     }
-                                   
+
+                                   {!content[0] ?
+                                       initialState():null
+                                   }
                                     
                                 </div>
                             </div>
                         </div>
+                        
                         <hr/>
-                        <PaginationBar/>
+                        <PaginationBar setPage={setPage} page={page} offSet={offSet}/>
                     </div>
                 </div>
             </div>

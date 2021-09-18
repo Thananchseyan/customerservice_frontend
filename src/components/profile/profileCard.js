@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const ProfileCard = ({id}) => {
+const ProfileCard = ({id,edit}) => {
 
 
     const [content,setContent] = useState([]);
@@ -65,12 +66,13 @@ const ProfileCard = ({id}) => {
                     </div>
                     :null}
 
-                    <div style={{paddingTop:"20px",float:"right"}}>
-                        <button className="btn btn-mtd btn-primary" style={{width:"100px",height:"25px",padding:'0 0'}}> 
+                    {edit ?<div style={{paddingTop:"20px",float:"right"}}>
+                        <Link to={`/edit/basicInfo/${id}`} className="btn btn-mtd btn-primary" style={{width:"100px",height:"25px",padding:'0 0'}}> 
                             Edit 
                             <i className="fas fa-edit" style={{paddingLeft:'10px'}}></i>
-                        </button>
-                    </div>
+                        </Link>
+                    </div>: 
+                    <br/>}
                    
                  </div>
             </div>

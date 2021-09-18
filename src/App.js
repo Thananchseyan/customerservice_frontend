@@ -15,10 +15,10 @@ import ViewWork from "./pages/viewWork";
 import ReviewUpdate from "./pages/changeReview";
 import Work from "./pages/work";
 import RemoveEmployee from "./pages/removeEmployee";
-import EditEmployee from "./pages/editEmployee";
-
-import ChangeCard from "./components/form/changeCard";
-import PasswordChanger from "./components/form/changePassword";
+import EditBasicInfo from "./pages/editEmployeeBasicInfo";
+import EditWorkerInfo from "./pages/editEmployeeWorkerInfo";
+import EditReview from "./pages/editRating";
+import AddWork from "./pages/addWork";
 
 function App() {
   return (
@@ -60,14 +60,11 @@ function App() {
         <Route exact path='/viewFinishedWork'>
           <ViewWork/>
         </Route>
-        <Route exact path='/editRating'>
+        {/* <Route exact path='/editRating'>
           <ReviewUpdate/>
-        </Route>
+        </Route> */}
         <Route exact path='/work'>
           <Work/>
-        </Route>
-        <Route exact path='/editRating'>
-          <ReviewUpdate/>
         </Route>
         <Route exact path='/removeWorker'>
           <RemoveEmployee type="Worker"/>
@@ -75,8 +72,17 @@ function App() {
         <Route exact path='/removeModerator'>
           <RemoveEmployee type="Moderator" />
         </Route>
-        <Route exact path='/editWorker/:id'>
-          <EditEmployee type="Worker"/>
+        <Route exact path='/edit/basicInfo/:id'>
+          <EditBasicInfo type="Worker" />
+        </Route>
+        <Route exact path='/edit/workerInfo/:id'>
+          <EditWorkerInfo type="Worker" />
+        </Route>
+        <Route exact path='/editRating'>
+          <EditReview />
+        </Route>
+        <Route exact path='/addWork'>
+          <AddWork/>
         </Route>
       </Switch>
       
