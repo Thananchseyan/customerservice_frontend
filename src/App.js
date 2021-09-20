@@ -19,10 +19,19 @@ import EditBasicInfo from "./pages/editEmployeeBasicInfo";
 import EditWorkerInfo from "./pages/editEmployeeWorkerInfo";
 import EditReview from "./pages/editRating";
 import AddWork from "./pages/addWork";
+import WorkRequest from "./pages/workRequest";
+import ProviderProfile from "./pages/providerProfile";
+import SignUp from "./pages/singnup";
+import ServiceInfo from "./pages/serviceInfo";
 
 function App() {
   return (
+    
     <div>
+      {/* <Switch>
+        <Route exact path="/signup" component={SignUp}/> */}
+      
+      
       {/* [ Pre-loader ] start */}
       <Preloader/>
       { /* [ Pre-loader ] End 
@@ -50,6 +59,9 @@ function App() {
         </Route>
         <Route exact path='/profile/:id'>
           <Profile/>
+        </Route>
+        <Route exact path='/profile'>
+          <ProviderProfile/>
         </Route>
         <Route exact path='/assignWorker'>
           <AssignWorker/>
@@ -84,8 +96,14 @@ function App() {
         <Route exact path='/addWork'>
           <AddWork/>
         </Route>
+        <Route exact path='/viewRequest'>
+          <WorkRequest/>
+        </Route>
+        <Route exact path='/serviceInfo'>
+          <ServiceInfo/>
+        </Route>
       </Switch>
-      
+      {/* </Switch> */}
       
     </div>
   );

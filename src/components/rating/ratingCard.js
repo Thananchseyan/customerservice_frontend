@@ -1,83 +1,66 @@
-import { useEffect } from "react";
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ProfileCard = ({id,edit,title}) => {
-
-
-    const [content,setContent] = useState([]);
-
-    useEffect(()=>{
-        fetch(`http://localhost:8000/serviceprovider/getbasic/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setContent(data)
-            })
-            .catch(err=> console.log);
-
-    },[])
-
-    return (  
+const RatingCard = ({id}) => {
+    return ( 
         <div className="">
             <div className="card yearly-sales">
                 <div className="card-block" style={{padding:'10px 30px 10px 30px'}}>
                     <div className="card-header">
-                        <h5>{title}</h5>
+                        <h5>Work info</h5>
                     </div>
 
-                    {content[0] ?
                     <div className="" style={{paddingTop:"25px"}}>
                         <div className="row" style={{display:"flex"}}>
                             <div className="col-4 col-md-4 col-sm-4">
-                                Full Name:
+                                Work ID:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                {content[0].name}
+                                ID00
                             </div>
                         </div>
                         <hr/>
                         
                         <div className="row" style={{display:"flex"}}>
                             <div className="col-4 col-md-4 col-sm-4">
-                                NIC:
+                                Customer ID:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                {content[0].nic}
+                                ID00
                             </div>
                         </div>
                         <hr/>
                         <div className="row" style={{display:"flex"}}>
                             <div className="col-4 col-md-4 col-sm-4">
-                                Email:
+                                Rating:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                {content[0].email}
+                                <i className="fas fa-caret-up text-c-green f-22 m-l-10"></i> 4
                             </div>
                         </div>
                         <hr/>
                         <div className="row" style={{display:"flex"}}>
                             <div className="col-4 col-md-4 col-sm-4">
-                                Address:
+                                Description:
                             </div>
                             <div className="col-8 col-md-8 col-sm-8">
-                                Sample Address
+                                Sample description
                             </div>
                         </div>
                     </div>
-                    :null}
+                    
 
-                    {edit ?<div style={{paddingTop:"20px",float:"right"}}>
+                    <div style={{paddingTop:"0px 20px",float:"right"}}>
                         <Link to={`/edit/basicInfo/${id}`} className="btn btn-mtd btn-primary" style={{width:"100px",height:"25px",padding:'0 0'}}> 
-                            Edit 
-                            <i className="fas fa-edit" style={{paddingLeft:'10px'}}></i>
+                            View 
+                            <i className="fas fa-eye" style={{paddingLeft:'10px'}}></i>
                         </Link>
-                    </div>: 
-                    <br/>}
+                    </div>
+                    
                    
                  </div>
             </div>
         </div>
-    );
+     );
 }
  
-export default ProfileCard;
+export default RatingCard;

@@ -20,7 +20,7 @@ function Chart({Array,Request}) {
   }
 
     return (
-      <div className="col-md-12 col-xl-6" >
+      <div className="col-sm-12 col-md-6 col-xl-6" >
         <div className="card yearly-sales chartCard">
           <div className="card-block" style={{padding:"0px"}}>
         <Line

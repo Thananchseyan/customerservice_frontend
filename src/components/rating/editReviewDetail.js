@@ -1,42 +1,47 @@
-import {useFormik} from 'formik';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
 import BreadCrumb from "../breadcrumb";
-import ProfileCard from '../profile/profileCard';
+import SearchBar from '../searchBar';
+import RatingCard from './ratingCard';
+
 
 const EditReviewDetail = ({type}) => {
 
     const [id,setID] = useState('ID89');
-
+    const [content,setCardContent] = useState([]);
+    const [error,setErr] = useState(false);
+    
     const formik = useFormik({
         initialValues:{
-            customerId:'',
-            workId:'',
-            //phone:'',
+            workId:id,
             rating:'',
             description:''
         },validationSchema: Yup.object({
-            customerId: Yup.string()
-                .required('Please enter the Customer ID')
-                .matches(/^[\w\d]+$/,"can only have letters and digits"),
+    
             workId: Yup.string()
                 .required('Please enter the Work ID')
                 .matches(/^[\w\d]+$/,"can only have letters and digits"),
             rating: Yup.number()
-                .required('Please select the rating')
+                .required('Please select the rating'),
+            description: Yup.string()
+                .required("Please enter the description")    
 
         }),
         onSubmit: values => {
             alert(JSON.stringify(values,null,2))
-            const employee = values
+            values.workId = id;
+            const work = values
             
-            console.log(employee)
+            alert(work);
 
             fetch('http://localhost:8000/serviceprovider/editBasicInfo/:id',{
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(employee)
+                body: JSON.stringify(work)
             }).then(()=>{
                 alert("Successfully submitted"); 
             }).catch((err)=>{
@@ -66,6 +71,9 @@ const EditReviewDetail = ({type}) => {
                                         <div className="card-header">
                                             <h5>Basic Componant</h5>
                                         </div>
+                                        <div className="" style={{marginTop:'20px'}}>
+                                            <SearchBar placeholder="Enter worker ID ..." setCardContent={setCardContent} setId={setID}/>
+                                        </div>
                                         <div className="card-body">
                                             <h5>{type}</h5>
                                             <hr/>
@@ -73,45 +81,42 @@ const EditReviewDetail = ({type}) => {
                                                 <div className="row">
                                                     <div className="col-md-6">
 
-                                                        <div className="form-group">
-                                                            <label htmlFor="workId">Work ID</label>
-                                                            <input type="text" className="form-control" value={formik.values.workId} id="workId" placeholder="Work ID" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                            { formik.touched.workId && formik.errors.workId ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.name}</small>: null}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="customerId">Customer ID</label>
-                                                            <input type="text" className="form-control" id="customer ID" value={formik.values.customerId} placeholder="CustomerId" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                            {formik.touched.customerId && formik.errors.customerId ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.nic}</small>: null}
-                                                        </div>
-                                                        {/* <div className="form-group">
-                                                            <label htmlFor="email">Email address</label>
-                                                            <input type="email" className="form-control" value={formik.values.email} id="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                            {formik.touched.email && formik.errors.email ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.email}</small>: null}
-                                                        </div> */}
-                                                        {/* <div className="form-group">
-                                                            <label htmlFor="phone">Phone Number</label>
-                                                            <input type="tel" className="form-control" value={formik.values.phone} id="phone" placeholder="Phone Number" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                            {formik.touched.phone && formik.errors.phone ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.phone}</small>: null}
-                                                        </div> */}
-                                                        {/* <div className="form-group">
-                                                            <label htmlFor="address">Worker ID</label>
-                                                            <input type="text" className="form-control" value={formik.values.worker} id="address" placeholder="Address" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                            { formik.touched.address && formik.errors.address ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.address}</small>: null}
-                                                        </div> */}
-                                                        <div className="form-group">
-                                                            <label htmlFor="rating">Rating</label>
-                                                            <input type="number" className="form-control" max="5" min="1" id="rating" value={formik.values.rating} placeholder="" onChange={formik.handleChange} onBlur={formik.handleBlur} required/>
-                                                            {formik.touched.rating && formik.errors.rating ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.nic}</small>: null}
+                                                    <div className="star-rating">
+                                                            <div className="thanks-msg">Thanks for your feedback !!!</div>
+                                                            <div className="star-input">
+                                                                <input type="radio" name="rating" id="rating-5" onChange={() => {formik.values.rating=5; setErr(true)}} />
+                                                                <label htmlFor="rating-5" className="fas fa-star"></label>
+                                                                <input type="radio" name="rating" id="rating-4" onChange={() => {formik.values.rating=4; setErr(true)}} />
+                                                                <label htmlFor="rating-4" className="fas fa-star"></label>
+                                                                <input type="radio" name="rating" id="rating-3" onChange={() => {formik.values.rating=3; setErr(true)}}/>
+                                                                <label htmlFor="rating-3" className="fas fa-star"></label>
+                                                                <input type="radio" name="rating" id="rating-2" onChange={() => {formik.values.rating=2; setErr(true)}}/>
+                                                                <label htmlFor="rating-2" className="fas fa-star"></label>
+                                                                <input type="radio" name="rating" id="rating-1" onChange={() => {formik.values.rating=1; setErr(true)}}/>
+                                                                <label htmlFor="rating-1" className="fas fa-star"></label>
+
+                                                                {/* <!-- Rating Submit Form --> */}
+                                                                <span className="rating-reaction"></span>
+                                                                
+                                                            </div>
                                                         </div>
 
+                                                        {formik.errors.rating && error ?null:<small id="nameError" className="error form-text text-muted error "> {formik.errors.rating}</small> }
+                                                        
+                                                        <div className="form-group">
+                                                            <label htmlFor="description">Comments</label>
+                                                            <textarea className="form-control" id="description" rows="5" value={formik.values.description} aria-label="Enter description" onChange={formik.handleChange} onBlur={formik.handleBlur} required></textarea>
+                                                            {formik.touched.description && formik.errors.description ? <small id="nameError" className="error form-text text-muted error "> {formik.errors.description}</small>: null}
+                                                        </div>
+                                                        <button type="submit" className="btn btn-primary">Submit</button>
 
-                                                    
                                                 </div>
+
                                                 <div className="col-md-6">    
-                                                    <ProfileCard id={id} />
+                                                    <RatingCard id={id} />
                                                 </div>
                                             </div>
-                                            <button type="submit" className="btn btn-primary">Submit</button>
+                                           
                                                     
                                         </form>
                                         </div>

@@ -6,7 +6,7 @@ import FinishCard from "../finishCard";
 const WorkProfile = () => {
     return ( 
 
-    <div className="pcoded-main-container">
+    <div className="pcoded-main-container main-container">
         <div className="pcoded-wrapper">
             <div className="pcoded-content">
                 <div className="pcoded-inner-content">
@@ -16,19 +16,20 @@ const WorkProfile = () => {
                             {//<!-- [ Main Content ] start -->
                             }
                             <div className="row">
-                                {/*<!-- [ work status ] starts-->*/}           
-                                <Card
-                                    title='Work Status'
-                                    symbol =  {<i className="feather icon-loader text-c-green f-30 m-r-10"></i>}
-                                    count = 'pending'
-                                />
-                                {/*<!-- [ work status ] end-->*/}
+                                
 
                                 {/*<!--[ Messages section ] starts-->*/}
+                                
                                 <Card
                                     title='New Messages'
                                     symbol = {<i className="fas fa-comment-dots text-c-green f-30 m-r-10"></i>}
                                     count = '100'
+                                    button = {
+                                        <Link to="" className="label theme-bg text-white f-12" style={{width:"100%",float:"right",textAlign:"center"}}>
+                                            View Info
+                                            &nbsp; <i className="far fa-eye"></i>
+                                        </Link>
+                                    }
                                 />
                                 {/*<!--[ Messages section ] end-->*/}
 
@@ -38,8 +39,27 @@ const WorkProfile = () => {
                                     title='Assigned Workers'
                                     symbol = {<i className="fas fa-users text-c-green f-30 m-r-10"></i>}
                                     count = '100'
+                                    button = {
+                                        <Link to="" className="label theme-bg text-white f-12" style={{width:"100%",float:"right",textAlign:"center"}}>
+                                            View Info
+                                            &nbsp; <i className="far fa-eye"></i>
+                                        </Link>}
                                 />
                                 {/*<!--[ Workers detail link section ] end-->*/}
+
+                                {/*<!-- [ work status ] starts-->*/}           
+                                <Card
+                                    title='Work Status'
+                                    symbol =  {<i className="feather icon-loader text-c-green f-30 m-r-10"></i>}
+                                    count = 'pending'
+                                    button = {
+                                        <Link to="" className="label theme-bg2 text-white f-12" style={{width:"100%",float:"right",textAlign:"center"}}>
+                                            Finish work
+                                            &nbsp; <i className="far fa-trash-alt"></i>
+                                        </Link>
+                                    }
+                                />
+                                {/*<!-- [ work status ] end-->*/}
                             </div>
 
                             <div className="row">
@@ -185,10 +205,13 @@ const WorkProfile = () => {
                                         button = 'confirm finish'
                                         buttonClass = 'btn-success'
                                     />
+                                    {/*<!-- [ work status ] starts-->*/}           
+                                    
+                                {/*<!-- [ work status ] end-->*/}
                                     {/*<!-- [ finish button ] end-->*/}
 
                                     {/*<!-- [ rating card ] starts-->*/} 
-                                    <div className="card user-list" >
+                                    {/* <div className="card user-list" >
                                         <div className="card-header" style={{margin:'10px 0px 0px 20px'}}>
                                             <h5>Rating</h5>
                                         </div>
@@ -208,12 +231,22 @@ const WorkProfile = () => {
                                             </div>
                                             <br/>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     {/*<!-- [ rating list ] end-->*/}
                                     
                                 </div>
                                 
-                                          
+                                <Card
+                                        title='Rating'
+                                        symbol =  {<i className="fas fa-star text-c-yellow f-30 m-r-10"></i>}
+                                        count = '4.7'
+                                        button = {
+                                            <Link to="" className="label theme-bg text-white f-12" style={{width:"100%",float:"right",textAlign:"center"}}>
+                                            view 
+                                                &nbsp; <i className="far fa-eye"></i>
+                                            </Link>
+                                        }
+                                    />       
                                 
                                 
                             </div>

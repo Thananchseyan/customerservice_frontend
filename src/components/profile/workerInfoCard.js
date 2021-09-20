@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
-const WorkerInfoCard = ({id,edit}) => {
+const WorkerInfoCard = ({id,edit,title}) => {
 
     const [content,setContent] = useState([]);
 
@@ -25,7 +25,7 @@ const WorkerInfoCard = ({id,edit}) => {
             <div className="card yearly-sales">
                 <div className="card-block" style={{padding:'10px 30px 10px 30px'}}>
                     <div className="card-header">
-                        <h5>Worker info</h5>
+                        <h5>{title}</h5>
                     </div>
                     {content[0] ?
                     <div className="" style={{paddingTop:"25px"}}>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import RatingBar from "./ratingBar";
 
 function RatingList(){
@@ -22,6 +24,12 @@ function RatingList(){
                         <RatingBar rate="3" count="50" percentage="39%"/>
                         <RatingBar rate="2" count="7" percentage="39%"/>
                         <RatingBar rate="1" count="0" percentage="9%"/>
+                    </div>
+                    <div style={{paddingTop:"20px",float:"right"}}>
+                        <Link to="" className="btn btn-mtd btn-primary" style={{width:"100px",height:"25px",padding:'0 0'}}> 
+                            View 
+                            <i className="fas fa-eye" style={{paddingLeft:'10px'}}></i>
+                        </Link>
                     </div>
                 </div>
             </div>

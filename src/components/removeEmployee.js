@@ -3,12 +3,14 @@ import ChangeCard from "./form/changeCard";
 import FinishCard from "./finishCard";
 import { useState } from "react";
 
+import "../App.css"
+
 const RemoveEmployeeCard = ({type}) => {
 
     const [id,setID] = useState('');
 
     return ( 
-    <div className="pcoded-main-container">
+    <div className="pcoded-main-container main-container">
         <div className="pcoded-wrapper">
             <div className="pcoded-content">
                 <div className="pcoded-inner-content">
@@ -18,7 +20,8 @@ const RemoveEmployeeCard = ({type}) => {
                     <div className="main-body">
                         <div className="page-wrapper">
                             {/*<!-- [ Main Content ] start -->*/}
-                                                              
+
+                                                       
                             {/*<!-- [ Remove card ] start -->*/}
                             <ChangeCard
                                 title = {`Remove ${type}`}

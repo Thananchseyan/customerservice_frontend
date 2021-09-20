@@ -1,32 +1,21 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router';
-import { useState } from 'react';
-import FinishCard from '../finishCard';
-import Notificator from '../notification/notificator';
-import RatingList from "../ratingSection/ratingList";
-import ProfileCard from './profileCard';
-import PhotoCard from './profilephoto';
+import { useState } from "react";
+
+import PhotoCard from "./profilephoto";
+import ProfileCard from "./profileCard";
 import WorkerInfoCard from "./workerInfoCard";
+import RatingList from "../ratingSection/ratingList";
+import FinishCard from "../finishCard";
+import Notificator from "../notification/notificator";
+import ServiceProviderCard from "./serviceProviderCard";
 
-function ProfileContent(){
+const SpProfile = () => {
 
-    const {id} = useParams();
+    const id = "ID89";
     
     const [content,setContent] = useState([]);
 
-    useEffect(()=>{
-        fetch(`http://localhost:8000/serviceprovider/getprofile/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setContent(data);
-                console.log(content);
-            })
-            .catch(err=> console.log);
-
-    },[])
-
-    return(
-        <div className="pcoded-main-container">
+    return ( 
+        <div className="pcoded-main-container main-container">
             <div className="pcoded-wrapper">
                 <div className="pcoded-content">
                     <div className="pcoded-inner-content">
@@ -39,33 +28,40 @@ function ProfileContent(){
                             {//<!-- [ Main Content ] start -->
                             }
                             <div className="row">
-
+                                <div className="col-sm-12 col-xl-4">
                                 {/*<!--[ profile section ] starts-->*/}
-                                <div className="col-md-12 col-xl-5">
-                                    <PhotoCard/>
-                                </div>
+                                <PhotoCard/>
+                                {/*<!--[ profile section ] end--> */}
                                 
-                                {/*<!--[ profile section ] end-->
-
-                                /*<!--[ basic info section ] start-->*/}
-                                <div className="col-md-12 col-xl-7">
-                                    <ProfileCard id={id} edit={true} title="Personal Info"/>
-                                </div>
+                                                                
                                 
-                                {/*<!--[ basic info section ] end-->*/}
+                                
+                                
 
-                                <div className="col-xl-4">
                                     {/*<!--[ Worker info section ] starts-->*/}
-                                    <WorkerInfoCard id={id} edit={true} title="Worker Info"/>
+                                    <WorkerInfoCard id={id} edit={true} title="Service Provider Info" />
                                     {/*<!--[ Worker info section ] end-->
 
                                     <!-- [ rating list ] starts-->*/}
                                     <RatingList id={id} />
                                     {/*<!-- [ rating list ] end-->*/}
 
+                                    {/*<!--[ profile section ] starts-->*/}
+                                    <PhotoCard/>
+                                    {/*<!--[ profile section ] end-->*/}
+
+                                    {/*<!--[ basic info section ] start-->*/}
+                                    <ProfileCard id={id} edit={true} title="Owner Info" />
+                                    {/*<!--[ basic info section ] end-->*/}
+                                    
+
+
+
+                                    {/*<!-- [ finish button ] end-->*/}
+
                                     {/*<!-- [ finish button ] starts-->*/}
                                     <FinishCard
-                                        title='Remove Employee'
+                                        title='Close the company'
                                         icon ={<i className="fas fa-user-slash" style={{paddingLeft:'10px'}}></i>}
                                         button = 'Suspend'
                                         buttonClass = 'btn-danger'
@@ -73,9 +69,19 @@ function ProfileContent(){
                                     />
                                     {/*<!-- [ finish button ] end-->*/}
 
+
+
+
                                 </div>
                                 
                                 <div className="col-xl-8">
+                                    {/*<!-- [ Services Info ] starts-->*/}
+                                        <ServiceProviderCard
+                                            title="Service Info"
+                                        />
+
+                                    {/*<!-- [ Services Info ] end-->*/}
+
                                     {/*<!--[ Recent Notification ] start-->*/}
                                     <Notificator title="New Notifications"/>
                                     {/*<!--[ Recent Notification ] end--> */}
@@ -85,7 +91,6 @@ function ProfileContent(){
                                     {/*<!--[ Recent Notification ] end--> */}
                                 </div>
                                 {/* <!-- [ Main Content ] end -->  */}
-                                
                             </div>
                             
                         </div>
@@ -94,7 +99,7 @@ function ProfileContent(){
             </div>
         </div>
     </div>
-    )
+     );
 }
-
-export default ProfileContent;
+ 
+export default SpProfile;

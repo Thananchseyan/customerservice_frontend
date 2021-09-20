@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 
 function PhotoCard(){
     return(
-        <div className="col-sm-12 col-xl-5">
+        <div className="">
             <div className="card yearly-sales">
                 <div className="card-block" style={{padding:'10px 30px 0px 30px'}}>
                     <div className="card-header">

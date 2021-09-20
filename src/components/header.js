@@ -18,9 +18,9 @@ function Header(){
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto">
 
-                    {//<li><Link to="#" className="full-screen" onClick="{#toggleFullScreen()}"><i className="feather icon-maximize"></i></Link></li>
-                    }
-                    <li className="nav-item dropdown">
+                    {/* <li><Link to="#" className="full-screen" onClick="{#toggleFullScreen()}"><i className="feather icon-maximize"></i></Link></li>
+                     */}
+                    {/* <li className="nav-item dropdown">
                         <Link className="dropdown-toggle" to="#0" data-toggle="dropdown">Dropdown</Link>
                         <ul className="dropdown-menu">
                             <li><Link className="dropdown-item" to="#0">Action</Link></li>
@@ -28,9 +28,10 @@ function Header(){
                             <li><Link className="dropdown-item" to="#0">Something else here</Link></li>
                         </ul>
                     </li>
-                    <li className="nav-item">
+                    
+                    <li className="nav-item" >
                         <div className="main-search">
-                            <div className="input-group">
+                            <div className="input-group" style={{paddingLeft:"10px"}}>
                                 <input type="text" id="m-search" className="form-control" placeholder="Search . . ."/>
                                 <Link to="#0" className="input-group-append search-close">
                                     <i className="feather icon-x input-group-text"></i>
@@ -40,7 +41,7 @@ function Header(){
                                 </span>
                             </div>
                         </div>
-                    </li>
+                    </li> */}
                 </ul>
                 <ul className="navbar-nav ml-auto">
                     <li>
@@ -90,7 +91,7 @@ function Header(){
                                     </li>
                                 </ul>
                                 <div className="noti-footer">
-                                    <Link to="#0">show all</Link>
+                                    <Link to="/viewRequest">show all</Link>
                                 </div>
                             </div>
                         </div>
@@ -102,17 +103,17 @@ function Header(){
                             </Link>
                             <div className="dropdown-menu dropdown-menu-right profile-notification">
                                 <div className="pro-head">
-                                    <img src="assets/images/user/avatar-1.jpg" className="img-radius" alt="User-Profile"/>
+                                    <img src="/assets/images/user/avatar-1.jpg" className="img-radius" alt="User-Profile"/>
                                     <span>John Doe</span>
-                                    <Link to="#0" className="dud-logout" title="Logout">
+                                    <Link to="/signout" className="dud-logout" title="Logout">
                                         <i className="feather icon-log-out"></i>
                                     </Link>
                                 </div>
                                 <ul className="pro-body">
-                                    <li><Link to="#0" className="dropdown-item"><i className="feather icon-settings"></i> Settings</Link></li>
-                                    <li><Link to="#0" className="dropdown-item"><i className="feather icon-user"></i> Profile</Link></li>
-                                    <li><Link to="#0" className="dropdown-item"><i className="feather icon-mail"></i> My Messages</Link></li>
-                                    <li><Link to="#0" className="dropdown-item"><i className="feather icon-lock"></i> Lock Screen</Link></li>
+                                    {/* <li><Link to="#0" className="dropdown-item"><i className="feather icon-settings"></i> Settings</Link></li> */}
+                                    <li><Link to="/profile" className="dropdown-item"><i className="feather icon-user"></i> My Profile</Link></li>
+                                    <li><Link to="#0" className="dropdown-item"><i className="feather icon-mail"></i> Messages</Link></li>
+                                    <li><Link to="#0" className="dropdown-item"><i className="feather icon-lock"></i> Log Out</Link></li>
                                 </ul>
                             </div>
                         </div>

@@ -1,4 +1,6 @@
-import Card from "./card";
+
+
+
 import Notificator from './notification/notificator';
 import RatingList from "./ratingSection/ratingList";
 //import Chart1 from "./chart"
@@ -13,7 +15,6 @@ function Content(){
                 <div className="pcoded-content">
                     <div className="pcoded-inner-content">
                     {//<!-- [ breadcrumb ] start -->
-
                     //<!-- [ breadcrumb ] end -->
                     }
                     <div className="main-body">
@@ -43,14 +44,17 @@ function Content(){
                                     Request = 'On Going Works '
                                 />
 
-                                {/*<!--[ Messages section ] end-->
+                                {/*<!--[ Messages section ] end-->*/}
 
                               
-
-                                <!--[ Recent Notification ] start-->*/}
-                                <Notificator/>
+                                <div className="col-xl-8">
+                                {/*<!--[ Recent Notification ] start-->*/}
+                                <Notificator title="Notification"/>
                                 {/* <!--[ Recent Notification ] end-->*/}
-
+                                {/*<!--[ Recent Notification ] start-->*/}
+                                <Notificator title="Messages"/>
+                                {/* <!--[ Recent Notification ] end-->*/}
+                                </div>
 
 
 
@@ -101,7 +105,10 @@ function Content(){
                                 {/*<!-- [ rating list ] end-->*/}
                                 </div>
                                {/* <!-- [ statistics year chart ] end -->
+                               
                                 {<!-- [ Main Content ] end --> */}
+                                <br/>
+                                <br/>
                             </div>
                             
                         </div>

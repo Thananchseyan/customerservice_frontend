@@ -4,16 +4,18 @@ import BreadCrumb from './breadcrumb';
 import SearchBar from './searchBar';
 
 
-import NotificationBar from './notification/notificationBar';
+
 import ChangeCard from './form/changeCard';
 import AssignForm from './form/assignWorkerForm';
+import AssignWorkerCard from './assignWorkerCard';
+import NotificationBar from './notification/notificationBar';
 
 
 
 const AssignWorkerForm = ({type}) => {
     
     return(  
-        <div className="pcoded-main-container">
+        <div className="pcoded-main-container main-container">
             <div className="pcoded-wrapper">
                 <div className="pcoded-content">
                     <div className="pcoded-inner-content">
@@ -40,7 +42,14 @@ const AssignWorkerForm = ({type}) => {
                                                 <div className="">
                                                     <div className="">
                                                         <div className="">
-                                                            <NotificationBar/>       
+                                                            <AssignWorkerCard
+                                                                id="ID89"
+                                                                designation="Moderator"
+                                                                phone="345678"
+                                                                rating= "4.7"
+                                                                viewURL=""
+                                                                delURL=""
+                                                            />     
                                                         </div>
                                                     </div>
                                                 </div>

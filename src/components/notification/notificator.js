@@ -2,35 +2,56 @@ import NotificationBar from './notificationBar';
 import {Link} from "react-router-dom"
 import { useEffect,useState } from 'react';
 
-function Notificator(){
+function Notificator({title}){
 
     const [Notification,setNotification] = useState([]);
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        fetch(`http://localhost:8000/serviceprovider/getNotification`)
-            .then(res => res.json())
-            .then(data => {
-                setNotification(data);               
-            })
-            .catch(err => console.log(err));
+    //     fetch(`http://localhost:8000/serviceprovider/getNotification`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setNotification(data);               
+    //         })
+    //         .catch(err => console.log(err));
 
-    },[])
+    // },[])
 
 
     return(
-        <div className="col-xl-8 col-md-12">
+        <div className="col-xl-12 col-md-12">
             <div className="card Notification">
                 <div className="card-header">
-                    <h5>New Notifications</h5>
+                    <h5>{title}</h5>
                 </div>
                 <div className="card-block px-0 py-3">
                     <div className="">
                         <div className="">
                             <div className="">
-                                <NotificationBar/>
-                                <NotificationBar/>
-                                <NotificationBar/>        
+                                <NotificationBar
+                                    title = "This is a xample title"
+                                    time = "21 July 12:56"
+                                    description = "This is a xample description. This is a xample description. This is a xample description. This is a xample description"
+                                    viewURL = "#"
+                                    delURL = "#"
+                                    id = "ID001"
+                                /> 
+                                <NotificationBar
+                                    title = "This is a xample title"
+                                    time = "21 July 12:56"
+                                    description = "This is a xample description. This is a xample description. This is a xample description. This is a xample description"
+                                    viewURL = "#"
+                                    delURL = "#"
+                                    id = "ID001"
+                                /> 
+                                <NotificationBar
+                                    title = "This is a xample title"
+                                    time = "21 July 12:56"
+                                    description = "This is a xample description. This is a xample description. This is a xample description. This is a xample description"
+                                    viewURL = "#"
+                                    delURL = "#"
+                                    id = "ID001"
+                                />       
                             </div>
                         </div>
                     </div>
