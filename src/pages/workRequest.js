@@ -1,4 +1,4 @@
-import NewWorkRequest from "../components/newWorkRequest";
+import NewWorkRequest from "../components/work/request/newWorkRequest";
 
 const WorkRequest = () => {
     return ( 

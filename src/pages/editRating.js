@@ -1,4 +1,4 @@
-import EditReviewDetail from "../components/rating/editReviewDetail";
+import EditReviewDetail from "../components/rating/edit/editReviewDetail";
 import ProfileCard from "../components/profile/profileCard";
 
 function EditReview() {

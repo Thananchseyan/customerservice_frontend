@@ -1,4 +1,4 @@
-import SpProfile from "../components/profile/serviceProviderProfile";
+import SpProfile from "../components/profile/serviceprovider/profile";
 
 const ProviderProfile = () => {
     return ( 

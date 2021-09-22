@@ -1,4 +1,4 @@
-import ViewWorker from "../components/employee/viewWorker";
+import ViewWorker from "../components/employee/view/viewWorker";
 
 const ViewEmployee = ({type}) => {
     return ( 

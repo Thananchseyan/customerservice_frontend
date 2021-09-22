@@ -1,4 +1,4 @@
-import EditEmployeeInfo from "../components/editEmployee/editWorkerInfo";
+import EditEmployeeInfo from "../components/employee/edit/editWorkerInfo";
 
 function EditWorkerInfo({type}) {
     return (

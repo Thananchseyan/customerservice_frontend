@@ -1,6 +1,6 @@
-import { Route, Switch } from "react-router";
-import EditEmployee from "../components/editEmployee/editEmployee";
-import EditEmployeeInfo from "../components/editEmployee/editWorkerInfo";
+
+import EditEmployee from "../components/employee/edit/editEmployee";
+
 
 function EditBasicInfo({type}) {
     return (

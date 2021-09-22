@@ -12,7 +12,6 @@ import ViewEmployee from "./pages/viewEmployee";
 import Profile from "./pages/profile";
 import AssignWorker from "./pages/assignWorker";
 import ViewWork from "./pages/viewWork";
-import ReviewUpdate from "./pages/changeReview";
 import Work from "./pages/work";
 import RemoveEmployee from "./pages/removeEmployee";
 import EditBasicInfo from "./pages/editEmployeeBasicInfo";
@@ -23,28 +22,28 @@ import WorkRequest from "./pages/workRequest";
 import ProviderProfile from "./pages/providerProfile";
 import SignUp from "./pages/singnup";
 import ServiceInfo from "./pages/serviceInfo";
+import SignIn from "./pages/signin";
 
 function App() {
   return (
     
-    <div>
-      {/* <Switch>
-        <Route exact path="/signup" component={SignUp}/> */}
+       <Switch>
+        <Route exact path="/signup" component={SignUp}/> 
+        <Route exact path="/signin" component={SignIn}/> 
       
+      <Route path="/">
+        {/* [ Pre-loader ] start */}
+        <Preloader/>
+        { /* [ Pre-loader ] End 
+          [ navigation menu ] start */}
+        <Navbar/>
+        {/* </div> [ navigation menu ] end 
+        [ Header ] start */}
+        <Header/>
+        {/*<!-- [ Header ] end --> */}
+       
+        <Route exact path='/' component={Home}/>
       
-      {/* [ Pre-loader ] start */}
-      <Preloader/>
-      { /* [ Pre-loader ] End 
-        [ navigation menu ] start */}
-       <Navbar/>
-       {/* </div> [ navigation menu ] end 
-       [ Header ] start */}
-       <Header/>
-       {/*<!-- [ Header ] end --> */}
-      <Switch>
-        <Route exact path='/'>
-          <Home/>
-        </Route>
         <Route exact path='/addModerator'>
           <AddEmployee type="Moderator"/>
         </Route>
@@ -57,27 +56,21 @@ function App() {
         <Route exact path='/viewModerator'>
           <ViewEmployee type="Moderator"/>
         </Route>
-        <Route exact path='/profile/:id'>
-          <Profile/>
-        </Route>
-        <Route exact path='/profile'>
-          <ProviderProfile/>
-        </Route>
-        <Route exact path='/assignWorker'>
-          <AssignWorker/>
-        </Route>
+        <Route exact path='/profile/:id' component={Profile}/>
+         
+        <Route exact path='/profile' component={ProviderProfile}/>
+        
+        <Route exact path='/assignWorker' component={AssignWorker}/>
+        
         <Route exact path='/viewWork'>
           <ViewWork/>
         </Route>
         <Route exact path='/viewFinishedWork'>
           <ViewWork/>
         </Route>
-        {/* <Route exact path='/editRating'>
-          <ReviewUpdate/>
-        </Route> */}
-        <Route exact path='/work'>
-          <Work/>
-        </Route>
+        
+        <Route exact path='/work' component={Work}/>
+        
         <Route exact path='/removeWorker'>
           <RemoveEmployee type="Worker"/>
         </Route>
@@ -102,10 +95,10 @@ function App() {
         <Route exact path='/serviceInfo'>
           <ServiceInfo/>
         </Route>
-      </Switch>
-      {/* </Switch> */}
+      </Route>
+     </Switch>
       
-    </div>
+    
   );
 }
 

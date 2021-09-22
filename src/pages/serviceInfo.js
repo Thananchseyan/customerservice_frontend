@@ -1,4 +1,4 @@
-import EditServiceInfo from "../components/editServiceInfo";
+import EditServiceInfo from "../components/serviceprovider/edit/serviceInfo";
 
 const ServiceInfo = () => {
     return ( 

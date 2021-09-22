@@ -1,4 +1,4 @@
-import RemoveEmployeeCard from "../components/removeEmployee";
+import RemoveEmployeeCard from "../components/employee/remove/removeEmployee";
 
 const RemoveEmployee = ({type}) => {
     return ( 

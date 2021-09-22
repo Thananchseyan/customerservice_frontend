@@ -1,4 +1,4 @@
-import AddWorkForm from "../components/addWorkForm";
+import AddWorkForm from "../components/work/add/addWork";
 
 const AddWork = () => {
     return ( 

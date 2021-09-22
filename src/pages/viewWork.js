@@ -1,4 +1,4 @@
-import ViewWorks from "../components/viewWork";
+import ViewWorks from "../components/work/view/viewWork";
 
 const ViewWork = () => {
     return ( 

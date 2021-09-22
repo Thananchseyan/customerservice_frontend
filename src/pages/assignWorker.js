@@ -1,4 +1,4 @@
-import AssignWorkerForm from "../components/assignWorkerForm";
+import AssignWorkerForm from "../components/work/assign/assignWorker";
 
 const AssignWorker = () => {
     return ( 

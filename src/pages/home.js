@@ -1,4 +1,4 @@
-import Content from '../components/content';
+import Content from '../components/home';
 
 function Home() {
     return (

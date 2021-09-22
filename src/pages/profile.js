@@ -1,4 +1,4 @@
-import ProfileContent from '../components/profile/profile';
+import ProfileContent from '../components/profile/employee/profile';
 
 function Profile() {
     return (
