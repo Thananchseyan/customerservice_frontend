@@ -3,8 +3,8 @@ import { gql } from '@apollo/client';
 
 const SIGNIN_USER = gql`
 mutation SignINSPMutation($signInspUsername: String!, $signInspPassword: String!) {
-  signINSP(username: $signInspUsername, password: $signInspPassword)
-}
+    signINSP(username: $signInspUsername, password: $signInspPassword)
+  }
 `;
 
 const SIGNUP_USER = gql`

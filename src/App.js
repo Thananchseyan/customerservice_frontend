@@ -14,7 +14,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 
 
 // configure our API URI & cache  
-const uri = process.env.API_URI;
+const uri = 'http://localhost:8000/';
 const httpLink = createHttpLink({ uri });
 const cache = new InMemoryCache();
 
