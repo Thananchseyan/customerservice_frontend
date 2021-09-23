@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import { useState } from 'react/cjs/react.development';
 
 
+
+
 function ViewWorker({type}){
 
     const [content,setContent] = useState([]);
@@ -18,12 +20,12 @@ function ViewWorker({type}){
 
     useEffect(()=>{
 
-        fetch(`http://localhost:8000/serviceprovider/viewWorkersCount`)
-            .then(res => res.json())
-            .then(data => {
-                setOffSet(data/3);              
-            })
-            .catch(err => console.log(err));
+        // fetch(`http://localhost:8000/serviceprovider/viewWorkersCount`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setOffSet(data/3);              
+        //     })
+        //     .catch(err => console.log(err));
 
             
         
@@ -31,26 +33,26 @@ function ViewWorker({type}){
 
     useEffect(()=>{
 
-        fetch(`http://localhost:8000/serviceprovider/viewWorkers?pages=${page}`)
-            .then(res => res.json())
-            .then(data => {
-                setContent(data);               
-            })
-            .catch(err => console.log(err));
+        // fetch(`http://localhost:8000/serviceprovider/viewWorkers?pages=${page}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setContent(data);               
+        //     })
+        //     .catch(err => console.log(err));
         
-        console.log(page);
-        console.log(content)
-        console.log(content.length)
+        // console.log(page);
+        // console.log(content)
+        // console.log(content.length)
     },[page]);
 
     const initialState = () => {
 
-        fetch(`http://localhost:8000/serviceprovider/viewWorkers`)
-            .then(res => res.json())
-            .then(data => {
-                setContent(data);               
-            })
-            .catch(err => console.log(err));
+        // fetch(`http://localhost:8000/serviceprovider/viewWorkers`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setContent(data);               
+        //     })
+        //     .catch(err => console.log(err));
     }
 
 

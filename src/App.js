@@ -24,9 +24,63 @@ import SignUp from "./pages/singnup";
 import ServiceInfo from "./pages/serviceInfo";
 import SignIn from "./pages/signin";
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {
+  ApolloClient,
+  ApolloProvider,
+  createHttpLink,
+  InMemoryCache
+} from '@apollo/client';
+
+
+
+
+// configure our API URI & cache
+const uri = "http://localhost:8000/";
+//const httpLink = createHttpLink({ uri });
+const cache = new InMemoryCache();
+
+const link = from([
+  errorLink,
+  new HttpLink({url:"http://localhost:8000/"})
+]);
+
+// return the headers to the context
+// const authLink = setContext((_, { headers }) => {
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: localStorage.getItem('token') || ''
+//     }
+//   };
+// });
+
+// create the Apollo client
+const client = new ApolloClient({
+  link: link,
+  cache,
+  resolvers: {},
+  connectToDevTools: true
+});
+
+// check for a local token
+// const data = {
+//   isLoggedIn: !!localStorage.getItem('token')
+// };
+
+// // write the cache data on initial load
+// cache.writeData({ data });
+// // write the cache data after cache is reset
+// client.onResetStore(() => cache.writeData({ data }));
+
+
+
 function App() {
+
+  
   return (
-    
+    <ApolloProvider client={client}>
        <Switch>
         <Route exact path="/signup" component={SignUp}/> 
         <Route exact path="/signin" component={SignIn}/> 
@@ -97,7 +151,7 @@ function App() {
         </Route>
       </Route>
      </Switch>
-      
+     </ApolloProvider>    
     
   );
 }
