@@ -13,6 +13,7 @@ const SignIn = (props) => {
       onCompleted: data => {
 
         console.log(data)
+
         // store the token
         localStorage.setItem('token', data.signIn);
         // update the local cache

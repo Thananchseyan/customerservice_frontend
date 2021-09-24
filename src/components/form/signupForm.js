@@ -5,12 +5,10 @@ const SignUpForm = props => {
   // set the default state of the form
   const [values, setValues] = useState();
 
-  useState(()=>{
-    console.log(values)
-  },[values])
 
   // update the state when a user types in the form
   const onChange = event => {
+      
     setValues({
       ...values,
       [event.target.name]: event.target.value
@@ -25,6 +23,7 @@ const SignUpForm = props => {
       <form
         onSubmit={event => {
           event.preventDefault();
+          console.log(values)
           props.action({
             variables: {
               ...values
@@ -50,11 +49,11 @@ const SignUpForm = props => {
         <div className="input-group mb-4">
         <input
           required
-          type="email"
-          id="email"
+          type="text"
+          id="signInspUsername"
           className="form-control"
-          name="email"
-          placeholder="Email"
+          name="signInspUsername"
+          placeholder="User ID"
           onChange={onChange}
         />
         </div>
@@ -62,8 +61,8 @@ const SignUpForm = props => {
         <input
           required
           type="password"
-          id="password"
-          name="password"
+          id="signInspPassword"
+          name={"signInspPassword"}
           className="form-control"
           placeholder="Password"
           onChange={onChange}

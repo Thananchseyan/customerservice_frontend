@@ -12,9 +12,13 @@ const SignUp = props => {
 
 
 
+
     const client = useApolloClient();
     const [signUp, { loading, error }] = useMutation(SIGNUP_USER, {
+
+        
       onCompleted: data => {
+
         // store the token
         localStorage.setItem('token', data.signUp);
         // update the local cache
