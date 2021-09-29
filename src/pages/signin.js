@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutation, useApolloClient } from '@apollo/client';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 
 import { SIGNIN_USER } from '../GraphQL/Mutations';
@@ -15,7 +15,7 @@ const SignIn = (props) => {
         console.log(data)
 
         // store the token
-        localStorage.setItem('token', data.signIn);
+        localStorage.setItem('token', data.signINSP);
         // update the local cache
         client.writeData({ data: { isLoggedIn: true } });
         // redirect the user to the homepage
@@ -23,7 +23,7 @@ const SignIn = (props) => {
       }
     });
 
-    return ( 
+    return (
         <div className="auth-wrapper">
         <div className="auth-content">
             <div className="auth-bg">
@@ -50,13 +50,13 @@ const SignIn = (props) => {
                             <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked=""/>
                             <label for="checkbox-fill-a1" className="cr"> Save Details</label>
                         </div>
-                    </div> 
+                    </div>
                     <button className="btn btn-primary shadow-2 mb-4">Login</button>
                     </form> */}
 
                     <SignUpForm action={signIn} formType="signin"/>
 
-                    
+
                     <p className="mb-2 text-muted">Forgot password? <Link to="">Reset</Link></p>
                     <p className="mb-0 text-muted">Don’t have an account? <Link to="">Signup</Link></p>
                 </div>
@@ -65,5 +65,5 @@ const SignIn = (props) => {
     </div>
      );
 }
- 
+
 export default SignIn;

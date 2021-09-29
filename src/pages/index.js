@@ -25,6 +25,7 @@ import SignUp from "./singnup";
 import ServiceInfo from "./serviceInfo";
 import SignIn from "./signin";
 import AddModerator from './addModerator';
+import SeyanPage from "./seyan";
 
 
 
@@ -39,16 +40,16 @@ const Pages = () => {
   return (
     <Router>
 
-        <Route exact path="/signup" component={SignUp}/> 
-        <Route exact path="/signin" component={SignIn}/> 
+        <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/signin" component={SignIn}/>
 
-
+        <Route exact path={"/seyan"} component={SeyanPage}/>
         <PrivateRoute exact path='/' component={Home}/>
-      
+
         <PrivateRoute exact path='/addModerator' component={AddModerator} />
-          
+
         <PrivateRoute exact path='/addWorker' component={AddEmployee} />
-          
+
         <PrivateRoute exact path='/viewWorker'>
           <ViewEmployee type="Worker"/>
         </PrivateRoute>
@@ -56,16 +57,16 @@ const Pages = () => {
           <ViewEmployee type="Moderator"/>
         </PrivateRoute>
         <PrivateRoute exact path='/profile/:id' component={Profile}/>
-         
+
         <PrivateRoute exact path='/profile' component={ProviderProfile}/>
-        
+
         <PrivateRoute exact path='/assignWorker' component={AssignWorker}/>
-        
+
         <PrivateRoute exact path='/viewWork' component={ViewWork} />
-        
+
         <PrivateRoute exact path='/viewFinishedWork' component={ViewWork} />
-         
-        
+
+
         {/* <PrivateRoute exact path='/work' component={Work}/>
          */}
         <PrivateRoute exact path='/removeWorker'>

@@ -9,6 +9,7 @@ import SummaryChart from "./pieChart";
 
 
 function Content(){
+    console.log(0/0)
     return(
         <div className="pcoded-main-container">
             <div className="pcoded-wrapper">
@@ -22,8 +23,8 @@ function Content(){
                             {//<!-- [ Main Content ] start -->
                             }
                             <div className="row">
-                                
-                            
+
+
                                 {//<!--[ New request section ] start-->
                                 }
                                 {/* <Card
@@ -31,22 +32,22 @@ function Content(){
                                     symbol ={<i class="fas fa-cart-plus text-c-green f-30 m-r-10"></i>}
                                     count = '0'
                                 /> */}
-                                <Chart 
+                                <Chart
                                     Array = {['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun']}
                                     Request = 'New Requests'
                                 />
                                 {/*<!--[ New request section ] end-->
 
                                 <!--[ Messages section ] starts-->*/}
-                                
-                                <Chart 
+
+                                <Chart
                                     Array = {['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun']}
                                     Request = 'On Going Works '
                                 />
 
                                 {/*<!--[ Messages section ] end-->*/}
 
-                              
+
                                 <div className="col-xl-8">
                                 {/*<!--[ Recent Notification ] start-->*/}
                                 <Notificator title="Notification"/>
@@ -58,10 +59,10 @@ function Content(){
 
 
 
-                                                                
-                                
+
+
                             {/*<!-- [ statistics year chart ] start --> */}
-                                
+
                                 <div className="col-xl-4 col-md-6">
 
                                 {/* <Card
@@ -69,13 +70,13 @@ function Content(){
                                     symbol = {<i className="feather icon-loader text-c-green f-30 m-r-10"></i>}
                                     count = '10'
                                 /> */}
-                                {/* <Chart 
+                                {/* <Chart
                                     Array = {['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun']}
                                 /> */}
                                 <SummaryChart/>
                                 {/*<!--[ On going work section ] end-->
 
-                                    
+
                                     <div className="card">
                                         <div className="card-block border-bottom">
                                             <div className="row d-flex align-items-center">
@@ -101,16 +102,16 @@ function Content(){
                                         </div>
                                     </div>
                                 {/*<!-- [ rating list ] starts-->*/}
-                                    <RatingList/>    
+                                    <RatingList/>
                                 {/*<!-- [ rating list ] end-->*/}
                                 </div>
                                {/* <!-- [ statistics year chart ] end -->
-                               
+
                                 {<!-- [ Main Content ] end --> */}
                                 <br/>
                                 <br/>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
