@@ -13,8 +13,7 @@ const SignIn = (props) => {
       onCompleted: data => {
 
         console.log(data)
-
-        // store the token
+          //store the token
         localStorage.setItem('token', data.signINSP);
         // update the local cache
         client.writeData({ data: { isLoggedIn: true } });
